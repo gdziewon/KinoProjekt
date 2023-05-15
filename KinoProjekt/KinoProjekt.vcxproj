@@ -128,7 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CinemaItem.h" />
+    <ClInclude Include="CinemaSystem.h" />
+    <ClInclude Include="HashFunction.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Screening.h" />
+    <ClInclude Include="Seat.h" />
+    <ClInclude Include="Ticket.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

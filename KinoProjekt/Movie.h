@@ -1,24 +1,42 @@
 #include <string>
+#include <vector>
+#include "CinemaItem.h"
 
 class Movie : public CinemaItem {
 public:
-    Movie(int id, const std::string& name, int duration, const std::string& genre, int pegi)
-        : CinemaItem(id, name), duration(duration), genre(genre), pegi(pegi) {}
+    Movie(int id, const std::string& name, const std::string& description, const std::vector<std::string>& actors, const std::string& director, const std::string& genre, int runningTime, int releaseYear)
+        : CinemaItem(id, name, description), actors(actors), director(director), genre(genre), runningTime(runningTime), releaseYear(releaseYear) {}
 
-    // Getter method for duration
-    int getDuration() const { return duration; }
+    std::vector<std::string> getActors() const { return actors; }
+    std::string getDirector() const { return director; }
+    std::string getGenre() const { return genre; }
+    int getRunningTime() const { return runningTime; }
+    int getReleaseYear() const { return releaseYear; }
 
-    // Implement the getInfo() method from the CinemaItem abstract class
-    std::string getInfo() const override {
-        return "Movie ID: " + std::to_string(id) + "\n"
-            "Title: " + name + "\n"
-            "Duration: " + std::to_string(duration) + " minutes\n";
-            "Genre: " + genre + "\n";
-            "Minimal age: " + std::to_string(pegi) + " years old";
+    void setActors(const std::vector<std::string>& actors) { this->actors = actors; }
+    void setDirector(const std::string& director) { this->director = director; }
+    void setGenre(const std::string& genre) { this->genre = genre; }
+    void setRunningTime(int runningTime) { this->runningTime = runningTime; }
+    void setReleaseYear(int releaseYear) { this->releaseYear = releaseYear; }
+
+    void display() const override {
+        std::cout << "ID: " << getId()
+            << ", Name: " << getName()
+            << ", Description: " << getDescription()
+            << ", Actors: ";
+        for (const auto& actor : actors) {
+            std::cout << actor << ", ";
+        }
+        std::cout << "Director: " << director
+            << ", Genre: " << genre
+            << ", Running time: " << runningTime
+            << ", Release year: " << releaseYear << std::endl;
     }
 
 private:
-    int duration; // Duration of the movie in minutes
+    std::vector<std::string> actors;
+    std::string director;
     std::string genre;
-    int pegi;
+    int runningTime;
+    int releaseYear;
 };
