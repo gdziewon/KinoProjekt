@@ -1,6 +1,3 @@
-#pragma once
-// Movie.h
-#include "CinemaItem.h"
 #include <string>
 
 class Movie : public CinemaItem {
