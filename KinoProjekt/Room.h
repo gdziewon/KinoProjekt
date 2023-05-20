@@ -1,26 +1,21 @@
+#ifndef ROOM_H
+#define ROOM_H
+
 #include <vector>
 #include "CinemaItem.h"
 #include "Seat.h"
 
 class Room : public CinemaItem {
 public:
-    Room(int id, const std::string& name, const std::string& description, int numRows, int numSeatsPerRow)
-        : CinemaItem(id, name, description), numRows(numRows), numSeatsPerRow(numSeatsPerRow) {
-        
-        for (int i = 0; i < numRows; ++i) {
-            for (int j = 0; j < numSeatsPerRow; ++j) {
-                seats.push_back(std::make_shared<Seat>(i * numSeatsPerRow + j, i, j));
-            }
-        }
-    }
+    Room(int id, const std::string& name, const std::string& description, int numRows, int numSeatsPerRow);
 
-    int getNumRows() const { return numRows; }
-    int getNumSeatsPerRow() const { return numSeatsPerRow; }
-    std::vector<std::shared_ptr<Seat>> getSeats() const { return seats; }
+    int getNumRows() const;
+    int getNumSeatsPerRow() const;
+    std::vector<std::shared_ptr<Seat>> getSeats() const;
 
-    void setNumRows(int numRows) { this->numRows = numRows; }
-    void setNumSeatsPerRow(int numSeatsPerRow) { this->numSeatsPerRow = numSeatsPerRow; }
-    void setSeats(const std::vector<std::shared_ptr<Seat>>& seats) { this->seats = seats; }
+    void setNumRows(int numRows);
+    void setNumSeatsPerRow(int numSeatsPerRow);
+    void setSeats(const std::vector<std::shared_ptr<Seat>>& seats);
 
     void display() const override {
         std::cout << "ID: " << getId()
@@ -35,3 +30,5 @@ private:
     int numSeatsPerRow;
     std::vector<std::shared_ptr<Seat>> seats;
 };
+
+#endif

@@ -1,5 +1,7 @@
+#ifndef DATABASEMANAGER_H
+#define DATABASEMANAGER_H
+
 #include <unordered_map>
-#include "User.h"
 #include "Movie.h"
 #include "Room.h"
 #include "Screening.h"
@@ -7,60 +9,29 @@
 
 class DatabaseManager {
 public:
-    DatabaseManager() {
-        // TODO: Initialize database connection
-    }
-
-    // User-related methods
-    std::unordered_map<int, std::shared_ptr<User>> loadUsers() {
-        // TODO: Load users from the database and return them
-        return std::unordered_map<int, std::shared_ptr<User>>();
-    }
-
-    void saveUsers(const std::unordered_map<int, std::shared_ptr<User>>& users) {
-        // TODO: Save users to the database
-    }
+    DatabaseManager();
 
     // Movie-related methods
-    std::unordered_map<int, std::shared_ptr<Movie>> loadMovies() {
-        // TODO: Load movies from the database and return them
-        return std::unordered_map<int, std::shared_ptr<Movie>>();
-    }
+    std::unordered_map<int, std::shared_ptr<Movie>> loadMovies();
 
-    void saveMovies(const std::unordered_map<int, std::shared_ptr<Movie>>& movies) {
-        // TODO: Save movies to the database
-    }
+    void saveMovies(const std::unordered_map<int, std::shared_ptr<Movie>>& movies);
 
     // Room-related methods
-    std::unordered_map<int, std::shared_ptr<Room>> loadRooms() {
-        // TODO: Load rooms from the database and return them
-        return std::unordered_map<int, std::shared_ptr<Room>>();
-    }
+    std::unordered_map<int, std::shared_ptr<Room>> loadRooms();
 
-    void saveRooms(const std::unordered_map<int, std::shared_ptr<Room>>& rooms) {
-        // TODO: Save rooms to the database
-    }
+    void saveRooms(const std::unordered_map<int, std::shared_ptr<Room>>& rooms);
 
     // Screening-related methods
-    std::unordered_map<int, std::shared_ptr<Screening>> loadScreenings() {
-        // TODO: Load screenings from the database and return them
-        return std::unordered_map<int, std::shared_ptr<Screening>>();
-    }
+    std::unordered_map<int, std::shared_ptr<Screening>> loadScreenings();
 
-    void saveScreenings(const std::unordered_map<int, std::shared_ptr<Screening>>& screenings) {
-        // TODO: Save screenings to the database
-    }
+    void saveScreenings(const std::unordered_map<int, std::shared_ptr<Screening>>& screenings);
 
     // Ticket-related methods
-    std::unordered_map<int, std::shared_ptr<Ticket>> loadTickets() {
-        // TODO: Load tickets from the database and return them
-        return std::unordered_map<int, std::shared_ptr<Ticket>>();
-    }
+    std::unordered_map<int, std::shared_ptr<Ticket>> loadTickets();
 
-    void saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets) {
-        // TODO: Save tickets to the database
-    }
+    void saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets);
 
 private:
     // TODO: Database connection information
 };
+#endif

@@ -1,23 +1,23 @@
+#ifndef TICKET_H
+#define TICKET_H
+
 #include <string>
 #include <memory>
+#include "CinemaItem.h"
 #include "Screening.h"
 #include "Seat.h"
 
 class Ticket : public CinemaItem {
 public:
-    Ticket(int id, const std::string& name, const std::string& description, std::shared_ptr<Screening> screening, std::shared_ptr<Seat> seat, const std::string& customerName)
-        : CinemaItem(id, name, description), screening(screening), seat(seat), customerName(customerName) {
-        
-        seat->setIsBooked(true);
-    }
+    Ticket(int id, const std::string& name, const std::string& description, std::shared_ptr<Screening> screening, std::shared_ptr<Seat> seat, const std::string& customerName);
 
-    std::shared_ptr<Screening> getScreening() const { return screening; }
-    std::shared_ptr<Seat> getSeat() const { return seat; }
-    std::string getCustomerName() const { return customerName; }
+    std::shared_ptr<Screening> getScreening() const;
+    std::shared_ptr<Seat> getSeat() const;
+    std::string getCustomerName() const;
 
-    void setScreening(const std::shared_ptr<Screening>& screening) { this->screening = screening; }
-    void setSeat(const std::shared_ptr<Seat>& seat) { this->seat = seat; }
-    void setCustomerName(const std::string& customerName) { this->customerName = customerName; }
+    void setScreening(const std::shared_ptr<Screening>& screening);
+    void setSeat(const std::shared_ptr<Seat>& seat);
+    void setCustomerName(const std::string& customerName);
 
     
     void display() const override {
@@ -34,3 +34,4 @@ private:
     std::shared_ptr<Seat> seat;
     std::string customerName;
 };
+#endif

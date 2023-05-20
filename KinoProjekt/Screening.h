@@ -1,4 +1,6 @@
-// Screening.h
+#ifndef SCREENING_H
+#define SCREENING_H
+
 #include <string>
 #include <memory>
 #include "CinemaItem.h"
@@ -7,18 +9,19 @@
 
 class Screening : public CinemaItem {
 public:
-    Screening(int id, const std::string& name, const std::string& description, std::shared_ptr<Movie> movie, std::shared_ptr<Room> room, const std::string& dateTime, double price)
-        : CinemaItem(id, name, description), movie(movie), room(room), dateTime(dateTime), price(price) {}
+    Screening(int id, const std::string& name, const std::string& description, std::shared_ptr<Movie> movie, std::shared_ptr<Room> room, const std::string& dateTime, double price);
 
-    std::shared_ptr<Movie> getMovie() const { return movie; }
-    std::shared_ptr<Room> getRoom() const { return room; }
-    std::string getDateTime() const { return dateTime; }
-    double getPrice() const { return price; }
+    //Getters
+    std::shared_ptr<Movie> getMovie() const;
+    std::shared_ptr<Room> getRoom() const;
+    std::string getDateTime() const;
+    double getPrice() const;
 
-    void setMovie(const std::shared_ptr<Movie>& movie) { this->movie = movie; }
-    void setRoom(const std::shared_ptr<Room>& room) { this->room = room; }
-    void setDateTime(const std::string& dateTime) { this->dateTime = dateTime; }
-    void setPrice(double price) { this->price = price; }
+    //Setters
+    void setMovie(const std::shared_ptr<Movie>& movie);
+    void setRoom(const std::shared_ptr<Room>& room);
+    void setDateTime(const std::string& dateTime);
+    void setPrice(double price);
 
     void display() const override {
         std::cout << "ID: " << getId()
@@ -28,7 +31,7 @@ public:
             << ", Room: " << room->getName()
             << ", Date and time: " << dateTime
             << ", Price: " << price << std::endl;
-    }
+    };
 
 private:
     std::shared_ptr<Movie> movie;
@@ -36,3 +39,4 @@ private:
     std::string dateTime;
     double price;
 };
+#endif

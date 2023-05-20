@@ -127,18 +127,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Booking.h" />
     <ClInclude Include="CinemaItem.h" />
     <ClInclude Include="CinemaSystem.h" />
-    <ClInclude Include="HashFunction.h" />
+    <ClInclude Include="DatabaseManager.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="PaymentProcessor.h" />
     <ClInclude Include="Room.h" />
+    <ClInclude Include="Schedule.h" />
     <ClInclude Include="Screening.h" />
     <ClInclude Include="Seat.h" />
     <ClInclude Include="Ticket.h" />
-    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Booking.cpp" />
+    <ClCompile Include="CinemaItem.cpp" />
+    <ClCompile Include="CinemaSystem.cpp" />
+    <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="PaymentProcessor.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Schedule.cpp" />
+    <ClCompile Include="Screening.cpp" />
+    <ClCompile Include="Seat.cpp" />
+    <ClCompile Include="Ticket.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,3 @@
-// Search.h
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -10,7 +9,6 @@ public:
     static std::vector<std::shared_ptr<Movie>> searchMoviesByTitle(const std::vector<std::shared_ptr<Movie>>& movies, const std::string& title) {
         std::vector<std::shared_ptr<Movie>> searchResults;
 
-        // Search movies by title (case-insensitive)
         std::string lowercaseTitle = toLowercase(title);
         for (const auto& movie : movies) {
             std::string lowercaseMovieTitle = toLowercase(movie->getTitle());
@@ -25,7 +23,6 @@ public:
     static std::vector<std::shared_ptr<Screening>> searchScreeningsByMovie(const std::vector<std::shared_ptr<Screening>>& screenings, const std::shared_ptr<Movie>& movie) {
         std::vector<std::shared_ptr<Screening>> searchResults;
 
-        // Search screenings by movie
         for (const auto& screening : screenings) {
             if (screening->getMovie() == movie) {
                 searchResults.push_back(screening);

@@ -1,53 +1,29 @@
-#include <unordered_map>
-#include "User.h"
-#include "Movie.h"
-#include "Room.h"
-#include "Screening.h"
-#include "Ticket.h"
-#include "DatabaseManager.h"
+#ifndef CINEMAITEM_H
+#define CINEMAITEM_H
 
-class CinemaSystem {
+#include <string>
+#include <iostream>
+
+class CinemaItem {
 public:
-    CinemaSystem() {
-        dbManager = std::make_shared<DatabaseManager>();
-    }
+    CinemaItem(int id, const std::string& name, const std::string& description);
 
-    void loadData() {
-        users = dbManager->loadUsers();
-        movies = dbManager->loadMovies();
-        rooms = dbManager->loadRooms();
-        screenings = dbManager->loadScreenings();
-        tickets = dbManager->loadTickets();
-    }
+    virtual ~CinemaItem() = default;
 
-    void saveData() {
-        dbManager->saveUsers(users);
-        dbManager->saveMovies(movies);
-        dbManager->saveRooms(rooms);
-        dbManager->saveScreenings(screenings);
-        dbManager->saveTickets(tickets);
-    }
+    int getId() const;
+    std::string getName() const;
+    std::string getDescription() const;
 
-    void addUser(const std::shared_ptr<User>& user) { users[user->getId()] = user; }
-    void removeUser(int userId) { users.erase(userId); }
+    void setId(int id);
+    void setName(const std::string& name);
+    void setDescription(const std::string& description);
 
-    void addMovie(const std::shared_ptr<Movie>& movie) { movies[movie->getId()] = movie; }
-    void removeMovie(int movieId) { movies.erase(movieId); }
-
-    void addRoom(const std::shared_ptr<Room>& room) { rooms[room->getId()] = room; }
-    void removeRoom(int roomId) { rooms.erase(roomId); }
-
-    void addScreening(const std::shared_ptr<Screening>& screening) { screenings[screening->getId()] = screening; }
-    void removeScreening(int screeningId) { screenings.erase(screeningId); }
-
-    void addTicket(const std::shared_ptr<Ticket>& ticket) { tickets[ticket->getId()] = ticket; }
-    void removeTicket(int ticketId) { tickets.erase(ticketId); }
+    virtual void display() const = 0;
 
 private:
-    std::unordered_map<int, std::shared_ptr<User>> users;
-    std::unordered_map<int, std::shared_ptr<Movie>> movies;
-    std::unordered_map<int, std::shared_ptr<Room>> rooms;
-    std::unordered_map<int, std::shared_ptr<Screening>> screenings;
-    std::unordered_map<int, std::shared_ptr<Ticket>> tickets;
-    std::shared_ptr<DatabaseManager> dbManager;
+    int id;
+    std::string name;
+    std::string description;
 };
+
+#endif //CINEMAITEM_H
