@@ -59,15 +59,19 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="D:\Libraries\wx-Widgets-3.2.2.1\wxwidgets.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="D:\Libraries\wx-Widgets-3.2.2.1\wxwidgets.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="D:\Libraries\wx-Widgets-3.2.2.1\wxwidgets.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="D:\Libraries\wx-Widgets-3.2.2.1\wxwidgets.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -138,20 +142,29 @@
     <ClInclude Include="Booking.h" />
     <ClInclude Include="CinemaItem.h" />
     <ClInclude Include="CinemaSystem.h" />
+    <ClInclude Include="ContactFrame.h" />
     <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="LoginFrame.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="App.h" />
+    <ClInclude Include="RepFrame.h" />
+    <ClInclude Include="TicketFrame.h" />
     <ClInclude Include="PaymentProcessor.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Schedule.h" />
     <ClInclude Include="Screening.h" />
     <ClInclude Include="Seat.h" />
     <ClInclude Include="Ticket.h" />
+    <ClInclude Include="TicketTypeFrame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Booking.cpp" />
     <ClCompile Include="CinemaItem.cpp" />
     <ClCompile Include="CinemaSystem.cpp" />
+    <ClCompile Include="ContactFrame.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
+    <ClCompile Include="LoginFrame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="PaymentProcessor.cpp" />
@@ -160,6 +173,11 @@
     <ClCompile Include="Screening.cpp" />
     <ClCompile Include="Seat.cpp" />
     <ClCompile Include="Ticket.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="TicketFrame.cpp" />
+    <ClCompile Include="RepFrame.cpp" />
+    <ClCompile Include="TicketTypeFrame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
