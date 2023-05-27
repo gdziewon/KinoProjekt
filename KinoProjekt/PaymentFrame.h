@@ -1,9 +1,10 @@
 #pragma once
 #include <wx/wx.h>
-class TicketTypeFrame : public wxFrame
+class PaymentFrame : public wxFrame
 {
 public:
-	TicketTypeFrame(const wxString& title);
+	PaymentFrame(const wxString& title);
 private:
 	void OnButton0Clicked(wxCommandEvent& evt);
 };
+

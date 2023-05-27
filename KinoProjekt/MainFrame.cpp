@@ -9,16 +9,6 @@
 #include "ContactFrame.h"
 #include "LoginFrame.h"
 
-enum IDs
-{
-	BUY_TICKET_ID = 2,
-	REP_ID = 3,
-	CONTACT_ID=4,
-	LOGIN_ID=5,
-	REGISTER_ID=6
-};
-
-
 MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 {
 	wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
@@ -35,20 +25,9 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	staticText0->SetForegroundColour(wxColor(57, 255, 20));
 
-	/*
-	wxStaticText* staticText1 = new wxStaticText(panel0, 4, "Logowanie", wxPoint(1050,10), wxSize(100, -1), wxALIGN_CENTER_HORIZONTAL);
-	staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	staticText1->SetForegroundColour(wxColor(255, 255, 255));
-	//staticText1->Bind(wxEVT_LEFT_DOWN, &MainFrame::OnLoginClicked, this, LOGIN_ID);
-
-	wxStaticText* staticText2 = new wxStaticText(panel0, 5, "Rejestracja", wxPoint(1050,50), wxSize(100, -1), wxALIGN_CENTER_HORIZONTAL);
-	staticText2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	staticText2->SetForegroundColour(wxColor(255, 255, 255));
-	*/
-
 	//panel 1
 	wxInitAllImageHandlers();
-	wxImage image("C:/Users/huber/source/repos/KinoProjekt/KinoProjekt/image/kino.png");
+	wxImage image(wxT("image/kino.png"));
 	if (image.IsOk())
 	{
 		wxSize panel_size = panel1->GetSize();
@@ -61,19 +40,24 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	wxBoxSizer* panel2Sizer = new wxBoxSizer(wxHORIZONTAL);
 	panel2->SetSizer(panel2Sizer);
 
-	wxButton* button0 = new wxButton(panel2, 3, "REPERTUAR", wxPoint(50, 50), wxSize(180, 100));
-	button0->Bind(wxEVT_BUTTON, &MainFrame::OnButton0Clicked, this, REP_ID);
-	button0->SetFont(wxFont(30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	wxButton* button1 = new wxButton(panel2, 2, "KUP BILET", wxPoint(400, 600), wxSize(180, 100));
-	button1->Bind(wxEVT_BUTTON, &MainFrame::OnButton1Clicked, this, BUY_TICKET_ID);
-	button1->SetFont(wxFont(30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	wxButton* button2= new wxButton(panel2, 4, "KONTAKT", wxPoint(850, 600), wxSize(180,100));
-	button2->Bind(wxEVT_BUTTON, &MainFrame::OnButton2Clicked, this, CONTACT_ID);
-	button2->SetFont(wxFont(30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	wxButton* button0 = new wxButton(panel2, wxID_ANY, "REPERTUAR", wxPoint(50, 50), wxSize(180, 100));
+	button0->Bind(wxEVT_BUTTON, &MainFrame::OnButton0Clicked, this, wxID_ANY);
+	button0->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	wxButton* button1 = new wxButton(panel2, wxID_ANY, "KUP BILET", wxPoint(400, 600), wxSize(180, 100));
+	button1->Bind(wxEVT_BUTTON, &MainFrame::OnButton1Clicked, this, wxID_ANY);
+	button1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	wxButton* button2= new wxButton(panel2, wxID_ANY, "TWOJE BILETY", wxPoint(850, 600), wxSize(180,100));
+	button2->Bind(wxEVT_BUTTON, &MainFrame::OnButton2Clicked, this, wxID_ANY);
+	button2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	wxButton* button3 = new wxButton(panel2, wxID_ANY, "KONTAKT", wxPoint(850, 600), wxSize(180, 100));
+	button3->Bind(wxEVT_BUTTON, &MainFrame::OnButton3Clicked, this, wxID_ANY);
+	button3->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+
 
 	panel2Sizer->Add(button0, 20, wxALL, 50);
 	panel2Sizer->Add(button1, 20, wxALL, 50);
 	panel2Sizer->Add(button2, 20, wxALL, 50);
+	panel2Sizer->Add(button3, 20, wxALL, 50);
 
 	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 	mainSizer->Add(panel0, 0, wxEXPAND);
@@ -106,10 +90,14 @@ void MainFrame::OnButton1Clicked(wxCommandEvent& evt)
 	ticketFrame->SetMinClientSize(wxSize(1280, 720));
 	ticketFrame->SetMaxClientSize(wxSize(1280, 720));
 	ticketFrame->Center();
-	//Hide();
 }
 
 void MainFrame::OnButton2Clicked(wxCommandEvent& evt)
+{
+	
+}
+
+void MainFrame::OnButton3Clicked(wxCommandEvent& evt)
 {
 	ContactFrame* contactFrame = new ContactFrame("Kontakt");
 	contactFrame->Show();

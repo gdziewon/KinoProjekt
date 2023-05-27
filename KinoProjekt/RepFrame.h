@@ -5,5 +5,6 @@ class RepFrame : public wxFrame
 public:
 	RepFrame(const wxString& title);
 private:
-
+	void OnMovieButtonClick(wxCommandEvent& event);
+	void OnMovieTitleClick(wxMouseEvent& event);
 };

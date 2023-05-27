@@ -1,9 +1,10 @@
 #pragma once
 #include <wx/wx.h>
-class TicketTypeFrame : public wxFrame
+class SeatFrame : public wxFrame
 {
 public:
-	TicketTypeFrame(const wxString& title);
+	SeatFrame(const wxString& title);
 private:
 	void OnButton0Clicked(wxCommandEvent& evt);
 };
+
