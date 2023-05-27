@@ -132,6 +132,12 @@
     <ClInclude Include="CinemaSystem.h" />
     <ClInclude Include="DatabaseManager.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="App.h" />
+    <ClInclude Include="PaymentFrame.h" />
+    <ClInclude Include="RepFrame.h" />
+    <ClInclude Include="SeatFrame.h" />
+    <ClInclude Include="TicketFrame.h" />
     <ClInclude Include="PaymentProcessor.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Schedule.h" />
@@ -146,11 +152,13 @@
     <ClCompile Include="DatabaseManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="PaymentFrame.cpp" />
     <ClCompile Include="PaymentProcessor.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Schedule.cpp" />
     <ClCompile Include="Screening.cpp" />
     <ClCompile Include="Seat.cpp" />
+    <ClCompile Include="SeatFrame.cpp" />
     <ClCompile Include="Ticket.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
