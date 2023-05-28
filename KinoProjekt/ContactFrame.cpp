@@ -2,7 +2,7 @@
 #include <wx/wx.h>
 #include <wx/hyperlink.h>
 
-ContactFrame::ContactFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+ContactFrame::ContactFrame(const wxString& title) : wxDialog(nullptr, wxID_ANY, title)
 {
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
 

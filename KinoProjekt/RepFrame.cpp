@@ -29,20 +29,15 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 
         wxBitmapButton* movieButton = new wxBitmapButton(panel1, wxID_ANY, moviePoster);
         movieButton->Bind(wxEVT_BUTTON, &RepFrame::OnMovieButtonClick, this);
-
         movieButton->SetId(i + 1);
-
         movieButton->SetToolTip(wxString::Format("Poster %d", i + 1));
-
         movieButton->SetSize(wxSize(150, 200));
 
-        // Calculate the position of the button
-        int row = i / 4; // Divide by the number of buttons per row
-        int column = i % 4; // Remainder gives the column index
-        int x = 120 + column * 300; // Adjust the values according to your desired positions
+        int row = i / 4;
+        int column = i % 4;
+        int x = 120 + column * 300;
         int y = 30 + row * 300;
         movieButton->SetPosition(wxPoint(x, y));
-
 
         wxStaticText* movieTitleText = new wxStaticText(panel1, wxID_ANY, movieTitles[i], wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
         movieTitleText->SetFont(wxFont(12, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
@@ -50,11 +45,11 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
         movieTitleText->Bind(wxEVT_LEFT_DOWN, &RepFrame::OnMovieTitleClick, this);
         movieTitleText->SetId(i + 1);
 
-        int row1 = i / 4; // Divide by the number of buttons per row
-        int column1 = i % 4; // Remainder gives the column index
-        int z = 150 + column1 * 300; // Adjust the values according to your desired positions
-        int c = 60 + row1 * 300;
-        movieButton->SetPosition(wxPoint(z, c));
+        int row1 = i / 4;
+        int column1 = i % 4; 
+        int z = 150 + column1 * 300;
+        int c = 260 + row1 * 300;
+        movieTitleText->SetPosition(wxPoint(z, c));
     }
 
     mainSizer->Add(panel1, 1, wxEXPAND);

@@ -27,18 +27,15 @@ SeatFrame::SeatFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
     wxBoxSizer* panel2Sizer = new wxBoxSizer(wxHORIZONTAL);
     panel2->SetSizer(panel2Sizer);
 
-    wxStaticText* staticText1 = new wxStaticText(panel2, wxID_ANY, "Twoje miejsca:", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
+    wxStaticText* staticText1 = new wxStaticText(panel2, wxID_ANY, "Twoje miejsca:", wxPoint(500,0), wxDefaultSize, wxALIGN_CENTER);
     staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText1->SetForegroundColour(wxColor(255, 255, 255));
 
-    // Zwiêksz prawy margines przycisku
     wxButton* button0 = new wxButton(panel2, wxID_ANY, "P³atnoœæ", wxDefaultPosition, wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &SeatFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-    // Dodaj elastyczne marginesy po obu stronach napisu i przycisku
     panel2Sizer->AddStretchSpacer(1);
-    panel2Sizer->Add(staticText1, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 10); // Dodaj wxALIGN_CENTER_VERTICAL, aby wyœrodkowaæ napis
     panel2Sizer->Add(button0, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 20); // Zwiêksz prawy margines przycisku
 
 }
