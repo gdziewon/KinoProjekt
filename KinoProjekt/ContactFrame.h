@@ -1,6 +1,6 @@
 #pragma once
 #include <wx/wx.h>
-class ContactFrame : public wxFrame
+class ContactFrame : public wxDialog
 {
 public:
 	ContactFrame(const wxString& title);

@@ -15,7 +15,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     fontLabel = wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     fontChoice = wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     // Panel górny
-    upper_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1260, 100));
+    upper_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     upper_panel->SetBackgroundColour(wxColour(0, 0, 0));
 
     staticText0 = new wxStaticText(upper_panel, wxID_ANY, "Kup Bilet", wxDefaultPosition, wxSize(400, -1), wxALIGN_CENTER_HORIZONTAL);
