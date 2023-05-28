@@ -47,9 +47,10 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
     staticText4->SetForegroundColour(wxColor(0, 0, 0));
 
     wxBoxSizer* spinCtrlSizer0 = new wxBoxSizer(wxHORIZONTAL);
-    wxSpinCtrl* spinCtrl0 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 150), wxSize(60, 25));
+    spinCtrl0 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 150), wxSize(60, 25));
     spinCtrl0->SetMax(10);
     spinCtrl0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    spinCtrl0->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 
     wxStaticText* staticText6 = new wxStaticText(panel1, wxID_ANY, "21 z³", wxPoint(890, 150), wxDefaultSize, wxALIGN_CENTER);
     staticText6->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
@@ -60,9 +61,10 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
     staticText5->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText5->SetForegroundColour(wxColor(0, 0, 0));
 
-    wxSpinCtrl* spinCtrl1 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 200), wxSize(60, 25));
+    spinCtrl1 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 200), wxSize(60, 25));
     spinCtrl1->SetMax(10);
     spinCtrl1->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    spinCtrl1->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 
     wxStaticText* staticText7 = new wxStaticText(panel1, wxID_ANY, "16 z³", wxPoint(890, 200), wxDefaultSize, wxALIGN_CENTER);
     staticText7->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
@@ -77,6 +79,10 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
     mainSizer->Add(panel1, 1, wxEXPAND);
     mainSizer->Add(panel2, 0, wxEXPAND);
     mainPanel->SetSizer(mainSizer);
+
+    spinText = new wxStaticText(panel1, wxID_ANY, "Do zap³aty: 0 z³", wxPoint(560, 320), wxDefaultSize, wxALIGN_CENTER);
+    spinText->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    spinText->SetForegroundColour(wxColor(0, 0, 0));
 }
 
 void TicketTypeFrame::OnButton0Clicked(wxCommandEvent& evt)
@@ -87,4 +93,12 @@ void TicketTypeFrame::OnButton0Clicked(wxCommandEvent& evt)
     seatFrame->SetMinClientSize(wxSize(1280, 720));
     seatFrame->SetMaxClientSize(wxSize(1280, 720));
     seatFrame->Center();
+}
+
+void TicketTypeFrame::OnSpin(wxSpinEvent& event)
+{
+    int value0 = spinCtrl0->GetValue();
+    int value1 = spinCtrl1->GetValue();
+    wxString message = wxString::Format("Do zap³aty: %d z³ ", value0 * 21 + value1 * 16);
+    spinText->SetLabel(message);
 }

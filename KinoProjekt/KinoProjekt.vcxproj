@@ -150,6 +150,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="PaymentFrame.h" />
     <ClInclude Include="RepFrame.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SeatFrame.h" />
     <ClInclude Include="TicketFrame.h" />
     <ClInclude Include="PaymentProcessor.h" />
