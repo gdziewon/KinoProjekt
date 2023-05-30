@@ -48,7 +48,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
 
     wxBoxSizer* spinCtrlSizer0 = new wxBoxSizer(wxHORIZONTAL);
     spinCtrl0 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 150), wxSize(60, 25));
-    spinCtrl0->SetMax(10);
+    spinCtrl0->SetMax(5);
     spinCtrl0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinCtrl0->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 
@@ -56,13 +56,12 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
     staticText6->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText6->SetForegroundColour(wxColor(0, 0, 0));
 
-
     wxStaticText* staticText5 = new wxStaticText(panel1, wxID_ANY, "Ulgowy", wxPoint(340, 200), wxDefaultSize, wxALIGN_CENTER);
     staticText5->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText5->SetForegroundColour(wxColor(0, 0, 0));
 
     spinCtrl1 = new wxSpinCtrl(panel1, wxID_ANY, "", wxPoint(630, 200), wxSize(60, 25));
-    spinCtrl1->SetMax(10);
+    spinCtrl1->SetMax(5);
     spinCtrl1->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinCtrl1->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 

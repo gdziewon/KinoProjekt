@@ -24,17 +24,17 @@ ContactFrame::ContactFrame(const wxString& title) : wxDialog(nullptr, wxID_ANY, 
 
     wxStaticText* emailText = new wxStaticText(panel1, wxID_ANY, "Email: projekt@projekt.com", wxDefaultPosition, wxDefaultSize, wxALIGN_LEFT);
     emailText->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    emailText->SetForegroundColour(wxColor(57, 255, 20));
+    emailText->SetForegroundColour(wxColor(0, 0, 0));
     panel2Sizer->Add(emailText, 0, wxALL | wxEXPAND, 10);
 
     wxStaticText* staticText2 = new wxStaticText(panel1, wxID_ANY, "Telefon: 123 123 123", wxDefaultPosition, wxDefaultSize, wxALIGN_LEFT);
     staticText2->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText2->SetForegroundColour(wxColor(57, 255, 20));
+    staticText2->SetForegroundColour(wxColor(0, 0, 0));
     panel2Sizer->Add(staticText2, 0, wxALL | wxEXPAND, 10);
 
     wxStaticText* staticText3 = new wxStaticText(panel1, wxID_ANY, "Autorzy: Hubert Kordula \t\tEryk Dziewoñski\n\t Jakub Sado\t\tMicha³ Radziukiewicz", wxDefaultPosition, wxDefaultSize, wxALIGN_LEFT);
     staticText3->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText3->SetForegroundColour(wxColor(57, 255, 20));
+    staticText3->SetForegroundColour(wxColor(0, 0, 0));
     panel2Sizer->Add(staticText3, 1, wxALL | wxEXPAND, 10);
 
     wxButton* closeButton = new wxButton(mainPanel, wxID_ANY, "Zamknij", wxDefaultPosition, wxSize(100,40));

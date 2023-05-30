@@ -1,7 +1,7 @@
 #include <wx/wx.h>
 #include <wx/statbmp.h>
 #include <map>
-#include<iomanip>
+#include <iomanip>
 
 #include "MainFrame.h"
 #include "TicketFrame.h"
@@ -53,7 +53,6 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	button3 = new wxButton(panel2, wxID_ANY, "KONTAKT", wxPoint(850, 600), wxSize(180, 100));
 	button3->Bind(wxEVT_BUTTON, &MainFrame::OnButton3Clicked, this, wxID_ANY);
 	button3->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-
 
 	panel2Sizer->Add(button0, 20, wxALL, 50);
 	panel2Sizer->Add(button1, 20, wxALL, 50);
@@ -110,11 +109,4 @@ void MainFrame::OnButton3Clicked(wxCommandEvent& evt)
 	contactFrame->SetMinClientSize(wxSize(640, 310));
 	contactFrame->SetMaxClientSize(wxSize(640, 310));
 	contactFrame->Center();
-}
-
-void MainFrame::OnLoginClicked(wxCommandEvent& evt)
-{
-	LoginFrame* loginFrame = new LoginFrame("Logowanie");
-	loginFrame->Show();
-	loginFrame->Center();
 }

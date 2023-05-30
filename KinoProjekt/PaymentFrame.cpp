@@ -18,9 +18,10 @@ PaymentFrame::PaymentFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, t
     wxPanel* leftPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(640, 520));
     leftPanel->SetBackgroundColour(wxColour(225, 225, 225));
 
-    wxStaticText* staticText1 = new wxStaticText(leftPanel, wxID_ANY, "Podsumowanie:", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    wxStaticText* staticText1 = new wxStaticText(leftPanel, wxID_ANY, "Podsumowanie", wxPoint(240, 10), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText1->SetForegroundColour(wxColor(0, 0, 0));
+
 
     // Utwórz panel prawy
     wxPanel* rightPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(640, 520));
@@ -96,25 +97,18 @@ PaymentFrame::PaymentFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, t
     button0->Bind(wxEVT_BUTTON, &PaymentFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-    // Utwórz uk³ad sizer (rozmiarówka)
-    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);  // Ustaw pionowy uk³ad rozmiarówki
+    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
-    // Utwórz uk³ad sizer (rozmiarówka) dla paneli lewego i prawego
-    wxBoxSizer* horizontalSizer = new wxBoxSizer(wxHORIZONTAL);  // Ustaw poziomy uk³ad rozmiarówki
+    wxBoxSizer* horizontalSizer = new wxBoxSizer(wxHORIZONTAL);
+    horizontalSizer->Add(leftPanel, 1, wxEXPAND);
+    horizontalSizer->Add(rightPanel, 1, wxEXPAND);
 
-    // Dodaj panele lewy i prawy do uk³adu poziomego
-    horizontalSizer->Add(leftPanel, 1, wxEXPAND);  // Panel lewy zajmuje 1 czêœæ dostêpnego miejsca
-    horizontalSizer->Add(rightPanel, 1, wxEXPAND);  // Panel prawy zajmuje 1 czêœæ dostêpnego miejsca
+    mainSizer->Add(topPanel, 1, wxEXPAND);
+    mainSizer->Add(horizontalSizer, 1, wxEXPAND);
+    mainSizer->Add(bottomPanel, 0, wxEXPAND);
 
-    // Dodaj panele do g³ównej rozmiarówki
-    mainSizer->Add(topPanel, 1, wxEXPAND);  // Panel górny zajmuje 1 czêœæ dostêpnego miejsca
-    mainSizer->Add(horizontalSizer, 1, wxEXPAND);  // Uk³ad poziomy zajmuje 1 czêœæ dostêpnego miejsca
-    mainSizer->Add(bottomPanel, 0, wxEXPAND);  // Stopka zajmuje sta³¹ wysokoœæ (0 czêœci dostêpnego miejsca)
-
-    // Ustaw rozmiarówkê na g³ównym panelu
     mainPanel->SetSizer(mainSizer);
 
-    // Wyrównaj elementy w rozmiarówce
     mainSizer->Layout();
 }
 

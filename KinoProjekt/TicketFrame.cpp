@@ -14,6 +14,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     fontTitle = wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     fontLabel = wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     fontChoice = wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+
     // Panel górny
     upper_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     upper_panel->SetBackgroundColour(wxColour(0, 0, 0));
@@ -32,8 +33,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     movieLabelText->SetForegroundColour(wxColour(0, 0, 0));
 
     wxArrayString choices;
-    choices.Add("Movie 1");
-    choices.Add("Movie 2");
+    choices.Add("Joker");
+    choices.Add("Beau Is Afraid");
     choices.Add("Movie 3");
     choices.Add("Movie 4");
     choices.Add("Movie 5");
@@ -44,7 +45,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     choice = new wxChoice(left_panel, wxID_ANY, wxPoint(40, 130), wxSize(200, -1), choices);
     choice->Connect(wxEVT_CHOICE, wxCommandEventHandler(TicketFrame::Image), nullptr, this);
     choice->SetFont(fontChoice);
-   
+    choice->SetSelection(0);
+
     // Wybierz Datê 
     dateTimeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Datê:", wxPoint(325, 100), wxDefaultSize);
     dateTimeText->SetFont(fontLabel);
@@ -69,6 +71,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     hours.Add("22:00");
     hourChoice = new wxChoice(left_panel, wxID_ANY, wxPoint(530, 130), wxSize(200, -1), hours);
     hourChoice->SetFont(fontChoice);
+    hourChoice->SetSelection(0);
     
     // Wybierz Typ
     typeLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Typ:", wxPoint(450, 230), wxDefaultSize);
@@ -82,6 +85,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
 
     listbox0 = new wxListBox(left_panel, wxID_ANY, wxPoint(405, 270), wxSize(200, 75), type);
     listbox0->SetFont(fontLabel);
+    listbox0->SetSelection(0);
     
     // Wybierz Jêzyk
     languageLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Jêzyk:", wxPoint(200, 230), wxDefaultSize);
@@ -94,6 +98,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     language.Add("Angielski Napisy PL");
     listBox = new wxListBox(left_panel, wxID_ANY, wxPoint(165, 270), wxSize(200, 75), language);
     listBox->SetFont(fontLabel);
+    listBox->SetSelection(0);
    
     // Panel prawy
     right_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(504, 520));
@@ -139,12 +144,12 @@ void TicketFrame::Image(wxCommandEvent& evt)
         imageBitmap = nullptr;
     }
     wxString numer_zdj = choice->GetStringSelection();
-    panel_zdj = new wxPanel(right_panel, wxID_ANY, wxPoint(80, 40), wxSize(350, 430));
+    panel_zdj = new wxPanel(right_panel, wxID_ANY, wxPoint(80, 4), wxSize(345, 512));
 
     wxString imagePath;
-    if (numer_zdj == "Movie 1")
+    if (numer_zdj == "Joker")
         imagePath = wxT("image/movie1.jpg");
-    else if (numer_zdj == "Movie 2")
+    else if (numer_zdj == "Beau Is Afraid")
         imagePath = wxT("image/movie2.jpg");
     else if (numer_zdj == "Movie 3")
         imagePath = wxT("image/movie3.jpg");

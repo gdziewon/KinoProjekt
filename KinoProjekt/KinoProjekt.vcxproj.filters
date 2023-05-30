@@ -84,6 +84,12 @@
     <ClInclude Include="PaymentFrame.h">
       <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieFrame.h">
+      <Filter>Pliki nagłówkowe\Frame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -150,6 +156,9 @@
       <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
     <ClCompile Include="ContactFrame.cpp">
+      <Filter>Pliki źródłowe\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="MovieFrame.cpp">
       <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
   </ItemGroup>

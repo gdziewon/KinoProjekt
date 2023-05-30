@@ -148,6 +148,7 @@
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="MovieFrame.h" />
     <ClInclude Include="PaymentFrame.h" />
     <ClInclude Include="RepFrame.h" />
     <ClInclude Include="resource.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="LoginFrame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MovieFrame.cpp" />
     <ClCompile Include="PaymentFrame.cpp" />
     <ClCompile Include="PaymentProcessor.cpp" />
     <ClCompile Include="Room.cpp" />
