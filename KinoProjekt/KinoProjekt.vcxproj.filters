@@ -90,6 +90,9 @@
     <ClInclude Include="MovieFrame.h">
       <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

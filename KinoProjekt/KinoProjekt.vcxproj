@@ -144,6 +144,7 @@
     <ClInclude Include="CinemaSystem.h" />
     <ClInclude Include="ContactFrame.h" />
     <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="LoginFrame.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MainFrame.h" />
