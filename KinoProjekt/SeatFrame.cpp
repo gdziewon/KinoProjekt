@@ -2,7 +2,8 @@
 #include "PaymentFrame.h"
 #include <wx/wx.h>
 
-SeatFrame::SeatFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message)
+    : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message)
 {
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
@@ -42,7 +43,7 @@ SeatFrame::SeatFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 
 void SeatFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    PaymentFrame* paymentFrame = new PaymentFrame("P³atnoœæ");
+    PaymentFrame* paymentFrame = new PaymentFrame("P³atnoœæ", movie, date, time, type, language, message);
     paymentFrame->Show();
     paymentFrame->SetClientSize(1280, 720);
     paymentFrame->SetMinClientSize(wxSize(1280, 720));

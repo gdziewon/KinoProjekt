@@ -7,7 +7,9 @@
 #include <wx/dateevt.h>
 #include <wx/spinctrl.h>
 
-TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+
+TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language)
+    : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language)
 {
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
     wxPanel* panel0 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
@@ -79,14 +81,15 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
     mainSizer->Add(panel2, 0, wxEXPAND);
     mainPanel->SetSizer(mainSizer);
 
-    spinText = new wxStaticText(panel1, wxID_ANY, "Do zap³aty: 0 z³", wxPoint(560, 320), wxDefaultSize, wxALIGN_CENTER);
+    spinText = new wxStaticText(panel1, wxID_ANY, "Do zap³aty: 0 z³", wxPoint(590, 320), wxDefaultSize, wxALIGN_CENTER);
     spinText->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinText->SetForegroundColour(wxColor(0, 0, 0));
+
 }
 
 void TicketTypeFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    SeatFrame* seatFrame = new SeatFrame("Siedzenie");
+    SeatFrame* seatFrame = new SeatFrame("Siedzenie", movie, date, time, type, language, message);
     seatFrame->Show();
     seatFrame->SetClientSize(1280, 720);
     seatFrame->SetMinClientSize(wxSize(1280, 720));
@@ -98,6 +101,6 @@ void TicketTypeFrame::OnSpin(wxSpinEvent& event)
 {
     int value0 = spinCtrl0->GetValue();
     int value1 = spinCtrl1->GetValue();
-    wxString message = wxString::Format("Do zap³aty: %d z³ ", value0 * 21 + value1 * 16);
+    message = wxString::Format("Do zap³aty: %d z³ ", value0 * 21 + value1 * 16);
     spinText->SetLabel(message);
 }

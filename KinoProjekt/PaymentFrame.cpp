@@ -1,7 +1,8 @@
 #include "PaymentFrame.h"
 #include <wx/wx.h>
 
-PaymentFrame::PaymentFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message)
+     : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message)
 {
     // Utwórz g³ówny panel
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
@@ -18,17 +19,44 @@ PaymentFrame::PaymentFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, t
     wxPanel* leftPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(640, 520));
     leftPanel->SetBackgroundColour(wxColour(225, 225, 225));
 
-    wxStaticText* staticText1 = new wxStaticText(leftPanel, wxID_ANY, "Podsumowanie", wxPoint(240, 10), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
-    staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    wxStaticText* staticText1 = new wxStaticText(leftPanel, wxID_ANY, "Podsumowanie", wxPoint(220, 10), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    staticText1->SetFont(wxFont(25, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText1->SetForegroundColour(wxColor(0, 0, 0));
 
+    wxStaticText* movieText = new wxStaticText(leftPanel, wxID_ANY, "Film:  "+ movie+"  "+type, wxPoint(100, 80), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    movieText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    movieText->SetForegroundColour(wxColor(0, 0, 0));
 
+    wxStaticText* dateText = new wxStaticText(leftPanel, wxID_ANY, "Data: "+ date, wxPoint(100, 130), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    dateText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    dateText->SetForegroundColour(wxColor(0, 0, 0));
+
+    wxStaticText* hourText = new wxStaticText(leftPanel, wxID_ANY, "Godzina: " + time, wxPoint(100, 180), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    hourText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    hourText->SetForegroundColour(wxColor(0, 0, 0));
+
+    wxStaticText* languageText = new wxStaticText(leftPanel, wxID_ANY, "Jêzyk: " + language, wxPoint(100, 230), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    languageText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    languageText->SetForegroundColour(wxColor(0, 0, 0));
+
+
+    wxStaticText* roomText = new wxStaticText(leftPanel, wxID_ANY, "Sala: ", wxPoint(100, 280), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    roomText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    roomText->SetForegroundColour(wxColor(0, 0, 0));
+
+    wxStaticText* seatText = new wxStaticText(leftPanel, wxID_ANY, "Miejsca: ", wxPoint(100, 330), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    seatText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    seatText->SetForegroundColour(wxColor(0, 0, 0));
+
+    wxStaticText* priceText = new wxStaticText(leftPanel, wxID_ANY, message, wxPoint(100, 380), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    priceText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    priceText->SetForegroundColour(wxColor(0, 0, 0));
     // Utwórz panel prawy
     wxPanel* rightPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(640, 520));
     rightPanel->SetBackgroundColour(wxColour(255, 255, 255));
 
-    wxStaticText* staticText2 = new wxStaticText(rightPanel, wxID_ANY, "Twoje Dane", wxPoint(250, 10), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
-    staticText2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    wxStaticText* staticText2 = new wxStaticText(rightPanel, wxID_ANY, "Twoje Dane", wxPoint(220, 10), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    staticText2->SetFont(wxFont(25, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText2->SetForegroundColour(wxColor(0, 0, 0));
 
     // Utwórz pola tekstowe
@@ -72,9 +100,9 @@ PaymentFrame::PaymentFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, t
     cardNumberCtrl->SetForegroundColour(wxColor(0, 0, 0));
     cardNumberCtrl->SetMaxLength(19);
 
-    wxStaticText* dateText = new wxStaticText(rightPanel, wxID_ANY, "Data:", wxPoint(100, 330), wxDefaultSize);
-    dateText->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    dateText->SetForegroundColour(wxColor(0, 0, 0));
+    wxStaticText* datecardText = new wxStaticText(rightPanel, wxID_ANY, "Data:", wxPoint(100, 330), wxDefaultSize);
+    datecardText->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+    datecardText->SetForegroundColour(wxColor(0, 0, 0));
     wxTextCtrl* expiryDateCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 360), wxSize(65, 30));
     expiryDateCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     expiryDateCtrl->SetForegroundColour(wxColor(0, 0, 0));
