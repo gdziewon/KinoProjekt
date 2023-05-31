@@ -1,4 +1,5 @@
 #include "DatabaseManager.h"
+#include "json.hpp"
 
 DatabaseManager::DatabaseManager() {
         // TODO: Initialize database connection
