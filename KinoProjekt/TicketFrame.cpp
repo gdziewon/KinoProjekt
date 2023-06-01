@@ -146,6 +146,7 @@ void TicketFrame::OnButton0Clicked(wxCommandEvent& evt)
 
 void TicketFrame::Image(wxCommandEvent& evt)
 {
+    right_panel->Freeze();
     if (imageBitmap)
     {
         imageBitmap->Destroy();
@@ -154,7 +155,6 @@ void TicketFrame::Image(wxCommandEvent& evt)
     wxString numer_zdj = choice->GetStringSelection();
     panel_zdj = new wxPanel(right_panel, wxID_ANY, wxPoint(80, 4), wxSize(345, 512));
 
-    wxString imagePath;
     if (numer_zdj == "Joker")
         imagePath = wxT("image/movie1.jpg");
     else if (numer_zdj == "Beau Is Afraid")
@@ -171,16 +171,16 @@ void TicketFrame::Image(wxCommandEvent& evt)
         imagePath = wxT("image/movie7.jpg");
     else if (numer_zdj == "Movie 8")
         imagePath = wxT("image/movie8.jpg");
+    else if (numer_zdj == "Movie 9")
+        imagePath = wxT("image/movie9.jpg");
 
-    if (!imagePath.IsEmpty())
+    wxImage image(imagePath);
+    if (image.IsOk())
     {
-        wxImage image(imagePath);
-        if (image.IsOk())
-        {
-            wxSize panel_size = panel_zdj->GetSize();
-            wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
-            wxBitmap bitmap(scaled_image);
-            imageBitmap = new wxStaticBitmap(panel_zdj, wxID_ANY, bitmap, wxDefaultPosition);
-        }
+        wxSize panel_size = panel_zdj->GetSize();
+        wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
+        wxBitmap bitmap(scaled_image);
+        imageBitmap = new wxStaticBitmap(panel_zdj, wxID_ANY, bitmap, wxDefaultPosition);
     }
+    right_panel->Thaw();
 }

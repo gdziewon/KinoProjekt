@@ -28,12 +28,12 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
     mainSizer->Add(panel2, 0, wxEXPAND);
 
     // Przyk³adowe dane plakatów filmów
-    wxString movieTitles[8] = {
+    wxString movieTitles[9] = {
         "Joker", "Beau Is Afraid", "Film 3", "Film 4", "Film 5",
-        "Film 6", "Film 7", "Film 8"
+        "Film 6", "Film 7", "Film 8", "Film 9"
     };
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 9; i++)
     {
         wxString imagePath = wxString::Format(wxT("image/movie%d.jpg"), i + 1);
         wxImage image(imagePath, wxBITMAP_TYPE_JPEG);
@@ -61,10 +61,6 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
         movieTitleText->Bind(wxEVT_LEFT_DOWN, &RepFrame::OnMovieTitleClick, this);
         movieTitleText->SetId(i + 1);
 
-        int row1 = i / 4;
-        int column1 = i % 4;
-        int z = 150 + column1 * 300;
-        int c = 260 + row1 * 300;
         int titleX = x + buttonSize.GetWidth() / 2 - movieTitleText->GetSize().GetWidth() / 2;
         int titleY = y + buttonSize.GetHeight() + 20;
         movieTitleText->SetPosition(wxPoint(titleX, titleY));

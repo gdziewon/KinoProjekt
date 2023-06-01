@@ -1,6 +1,10 @@
 #pragma once
 #include <wx/wx.h>
 #include <wx/datectrl.h>
+#include <wx/statbmp.h>
+#include <map>
+#include <iomanip>
+
 
 class TicketFrame : public wxFrame
 {
@@ -28,7 +32,6 @@ private:
     wxStaticText* languageLabelText;
 
     // Buttons
-    wxStaticBitmap* imageBitmap;
     wxChoice* choice;
     wxChoice* hourChoice;
     wxListBox* listbox0;
@@ -41,6 +44,8 @@ private:
     wxFont fontLabel;
     wxFont fontChoice;
 
-    
+    wxStaticBitmap* imageBitmap;
+    wxString imagePath;
+
 };
 
