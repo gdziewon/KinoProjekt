@@ -1,6 +1,5 @@
 #pragma once
 #include <wx/wx.h>
-#include "TicketFrame.h"
 class PaymentFrame : public wxFrame
 {
 public:
@@ -8,6 +7,43 @@ public:
 private:
 	void OnButton0Clicked(wxCommandEvent& evt);
 	wxString movie, date, time, type, language, message;
+	
+	wxPanel* mainPanel;
+	wxPanel* topPanel;
+	wxPanel* leftPanel;
+	wxPanel* rightPanel;
+	wxPanel* bottomPanel;
 
+	wxStaticText* staticText0;
+	wxStaticText* staticText1;
+	wxStaticText* staticText2;
+
+	wxStaticText* movieText;
+	wxStaticText* dateText;
+	wxStaticText* hourText;
+	wxStaticText* languageText;
+	wxStaticText* roomText;
+	wxStaticText* seatText;
+	wxStaticText* priceText;
+	wxStaticText* nameText;
+	wxStaticText* surnameText;
+	wxStaticText* emailText;
+	wxStaticText* phoneText;
+	wxStaticText* cardText;
+	wxStaticText* datecardText;
+	wxStaticText* cvcText;
+
+	wxTextCtrl* nameCtrl;
+	wxTextCtrl* surnameCtrl;
+	wxTextCtrl* emailCtrl;
+	wxTextCtrl* phoneCtrl;
+	wxTextCtrl* cardNumberCtrl;
+	wxTextCtrl* expiryDateCtrl;
+	wxTextCtrl* cvcCtrl;
+
+	wxButton* button0;
+
+	wxBoxSizer* mainSizer;
+	wxBoxSizer* horizontalSizer;
 };
 

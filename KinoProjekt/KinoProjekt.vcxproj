@@ -145,7 +145,6 @@
     <ClInclude Include="ContactFrame.h" />
     <ClInclude Include="DatabaseManager.h" />
     <ClInclude Include="json.hpp" />
-    <ClInclude Include="LoginFrame.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="App.h" />
@@ -170,7 +169,6 @@
     <ClCompile Include="CinemaSystem.cpp" />
     <ClCompile Include="ContactFrame.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
-    <ClCompile Include="LoginFrame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MovieFrame.cpp" />

@@ -1,9 +1,8 @@
 #pragma once
 #include <wx/wx.h>
 #include <wx/datectrl.h>
-#include <wx/statbmp.h>
-#include <map>
-#include <iomanip>
+
+#include "TicketTypeFrame.h"
 
 
 class TicketFrame : public wxFrame

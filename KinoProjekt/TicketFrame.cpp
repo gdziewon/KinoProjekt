@@ -1,13 +1,4 @@
 #include "TicketFrame.h"
-#include "PaymentFrame.h"
-#include "TicketTypeFrame.h"
-
-#include <wx/wx.h>
-#include <wx/datectrl.h>
-#include <wx/dateevt.h>
-#include <wx/datetime.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
 
 TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 {
@@ -142,6 +133,7 @@ void TicketFrame::OnButton0Clicked(wxCommandEvent& evt)
     tickettypeFrame->SetClientSize(1280, 720);
     tickettypeFrame->SetMaxClientSize(wxSize(1280, 720));
     tickettypeFrame->Center();
+    Close();
 }
 
 void TicketFrame::Image(wxCommandEvent& evt)
