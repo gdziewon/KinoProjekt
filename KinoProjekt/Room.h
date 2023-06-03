@@ -4,8 +4,33 @@
 #include <vector>
 #include "CinemaItem.h"
 #include "Seat.h"
+#include "DatabaseManager.h"
+#include "json.hpp"
+#include <fstream>
 
-class Room : public CinemaItem {
+using json = nlohmann::json;
+
+
+class Room {
+public:
+    Room(int id, int seatsQuantity, int rows, int columns)
+        : id_(id), seatsQuantity_(seatsQuantity), rows_(rows), columns_(columns) {}
+
+    // Getters for the variables (optional)
+    int getId() const { return id_; }
+    int getSeatsQuantity() const { return seatsQuantity_; }
+    int getRows() const { return rows_; }
+    int getColumns() const { return columns_; }
+
+private:
+    int id_;
+    int seatsQuantity_;
+    int rows_;
+    int columns_;
+};
+
+
+/*class Room : public CinemaItem {
 public:
     Room(int id, const std::string& name, const std::string& description, int numRows, int numSeatsPerRow);
 
@@ -32,3 +57,4 @@ private:
 };
 
 #endif
+*/

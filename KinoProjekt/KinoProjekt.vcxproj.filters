@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Frame">
+      <UniqueIdentifier>{9675c24d-4db1-479d-bf84-34b7f80ff67c}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Pliki źródłowe\Frame">
       <UniqueIdentifier>{5691079f-3041-41e0-b39e-fc3a8893c152}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pliki nagłówkowe\Frame_h">
-      <UniqueIdentifier>{9675c24d-4db1-479d-bf84-34b7f80ff67c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,34 +57,37 @@
     <ClInclude Include="App.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="LoginFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
-    </ClInclude>
     <ClInclude Include="MainFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="RepFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="ContactFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="SeatFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="TicketTypeFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="YourTicketFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="TicketFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="PaymentFrame.h">
-      <Filter>Pliki nagłówkowe\Frame_h</Filter>
+      <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieFrame.h">
+      <Filter>Pliki nagłówkowe\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
@@ -128,9 +131,6 @@
     <ClCompile Include="App.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="LoginFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
-    </ClCompile>
     <ClCompile Include="MainFrame.cpp">
       <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
@@ -155,5 +155,25 @@
     <ClCompile Include="ContactFrame.cpp">
       <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
+    <ClCompile Include="MovieFrame.cpp">
+      <Filter>Pliki źródłowe\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="data_class.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\movies.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\rooms.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\tickets.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\screening.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
   </ItemGroup>
 </Project>

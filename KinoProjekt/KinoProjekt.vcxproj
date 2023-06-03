@@ -144,10 +144,11 @@
     <ClInclude Include="CinemaSystem.h" />
     <ClInclude Include="ContactFrame.h" />
     <ClInclude Include="DatabaseManager.h" />
-    <ClInclude Include="LoginFrame.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="MovieFrame.h" />
     <ClInclude Include="PaymentFrame.h" />
     <ClInclude Include="RepFrame.h" />
     <ClInclude Include="resource.h" />
@@ -168,9 +169,9 @@
     <ClCompile Include="CinemaSystem.cpp" />
     <ClCompile Include="ContactFrame.cpp" />
     <ClCompile Include="DatabaseManager.cpp" />
-    <ClCompile Include="LoginFrame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MovieFrame.cpp" />
     <ClCompile Include="PaymentFrame.cpp" />
     <ClCompile Include="PaymentProcessor.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -185,6 +186,13 @@
     <ClCompile Include="RepFrame.cpp" />
     <ClCompile Include="TicketTypeFrame.cpp" />
     <ClCompile Include="YourTicketFrame.cpp" />
+    <ClCompile Include="data_class.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\movies.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\rooms.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\screening.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\tickets.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
