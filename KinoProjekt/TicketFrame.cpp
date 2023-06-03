@@ -1,12 +1,4 @@
 #include "TicketFrame.h"
-#include "TicketTypeFrame.h"
-
-#include <wx/wx.h>
-#include <wx/datectrl.h>
-#include <wx/dateevt.h>
-#include <wx/datetime.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
 
 TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 {
@@ -41,6 +33,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     choices.Add("Movie 6");
     choices.Add("Movie 7");
     choices.Add("Movie 8");
+    choices.Add("Movie 9");
 
     choice = new wxChoice(left_panel, wxID_ANY, wxPoint(40, 130), wxSize(200, -1), choices);
     choice->Connect(wxEVT_CHOICE, wxCommandEventHandler(TicketFrame::Image), nullptr, this);
@@ -51,13 +44,13 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     dateTimeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Datê:", wxPoint(325, 100), wxDefaultSize);
     dateTimeText->SetFont(fontLabel);
     dateTimeText->SetForegroundColour(wxColour(0, 0, 0));
-   
-    wxDatePickerCtrl* datePicker = new wxDatePickerCtrl(left_panel, wxID_ANY, wxDefaultDateTime, wxPoint(285, 130), wxSize(200, 35), wxDP_DROPDOWN);
-    datePicker->SetFont(fontLabel);
+    
+    datePicked = new wxDatePickerCtrl(left_panel, wxID_ANY, wxDefaultDateTime, wxPoint(285, 130), wxSize(200, 35), wxDP_DROPDOWN);
+    datePicked->SetFont(fontLabel);
     wxDateTime maxDate = wxDateTime::Today();
     maxDate.Add(wxDateSpan::Months(1));
-    datePicker->SetRange(wxDateTime::Today(), maxDate);
-    
+    datePicked->SetRange(wxDateTime::Today(), maxDate);
+
     // Wybierz Godzinê
     timeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Godzinê:", wxPoint(550, 100), wxDefaultSize);
     timeText->SetFont(fontLabel);
@@ -129,15 +122,23 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
 
 void TicketFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    TicketTypeFrame* tickettypeFrame = new TicketTypeFrame("Wybierz Bilet");
+    wxString movie = choice->GetStringSelection();
+    wxString date = datePicked->GetValue().FormatISODate(); 
+    wxString time = hourChoice->GetStringSelection();
+    wxString type = listbox0->GetStringSelection();
+    wxString language = listBox->GetStringSelection();
+
+    TicketTypeFrame* tickettypeFrame = new TicketTypeFrame("Wybierz Bilet", movie, date, time, type, language);
     tickettypeFrame->Show();
     tickettypeFrame->SetClientSize(1280, 720);
     tickettypeFrame->SetMaxClientSize(wxSize(1280, 720));
     tickettypeFrame->Center();
+    Close();
 }
 
 void TicketFrame::Image(wxCommandEvent& evt)
 {
+    right_panel->Freeze();
     if (imageBitmap)
     {
         imageBitmap->Destroy();
@@ -146,7 +147,6 @@ void TicketFrame::Image(wxCommandEvent& evt)
     wxString numer_zdj = choice->GetStringSelection();
     panel_zdj = new wxPanel(right_panel, wxID_ANY, wxPoint(80, 4), wxSize(345, 512));
 
-    wxString imagePath;
     if (numer_zdj == "Joker")
         imagePath = wxT("image/movie1.jpg");
     else if (numer_zdj == "Beau Is Afraid")
@@ -163,16 +163,16 @@ void TicketFrame::Image(wxCommandEvent& evt)
         imagePath = wxT("image/movie7.jpg");
     else if (numer_zdj == "Movie 8")
         imagePath = wxT("image/movie8.jpg");
+    else if (numer_zdj == "Movie 9")
+        imagePath = wxT("image/movie9.jpg");
 
-    if (!imagePath.IsEmpty())
+    wxImage image(imagePath);
+    if (image.IsOk())
     {
-        wxImage image(imagePath);
-        if (image.IsOk())
-        {
-            wxSize panel_size = panel_zdj->GetSize();
-            wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
-            wxBitmap bitmap(scaled_image);
-            imageBitmap = new wxStaticBitmap(panel_zdj, wxID_ANY, bitmap, wxDefaultPosition);
-        }
+        wxSize panel_size = panel_zdj->GetSize();
+        wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
+        wxBitmap bitmap(scaled_image);
+        imageBitmap = new wxStaticBitmap(panel_zdj, wxID_ANY, bitmap, wxDefaultPosition);
     }
+    right_panel->Thaw();
 }

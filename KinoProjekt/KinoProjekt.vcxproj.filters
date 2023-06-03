@@ -57,9 +57,6 @@
     <ClInclude Include="App.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="LoginFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
-    </ClInclude>
     <ClInclude Include="MainFrame.h">
       <Filter>Pliki nagłówkowe\Frame</Filter>
     </ClInclude>
@@ -133,9 +130,6 @@
     </ClCompile>
     <ClCompile Include="App.cpp">
       <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
     <ClCompile Include="MainFrame.cpp">
       <Filter>Pliki źródłowe\Frame</Filter>
