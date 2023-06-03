@@ -1,11 +1,14 @@
 #pragma once
 #include <wx/wx.h>
+#include <wx/datectrl.h>
+
+#include "TicketTypeFrame.h"
+
 
 class TicketFrame : public wxFrame
 {
 public:
     TicketFrame(const wxString& title);
-
 private:
     void OnButton0Clicked(wxCommandEvent& evt);
     void Image(wxCommandEvent& evt);
@@ -28,16 +31,20 @@ private:
     wxStaticText* languageLabelText;
 
     // Buttons
-    wxStaticBitmap* imageBitmap;
     wxChoice* choice;
     wxChoice* hourChoice;
     wxListBox* listbox0;
     wxListBox* listBox;
+    wxDatePickerCtrl* datePicked;
     wxButton* button0;
 
     // Fonts
     wxFont fontTitle;
     wxFont fontLabel;
     wxFont fontChoice;
+
+    wxStaticBitmap* imageBitmap;
+    wxString imagePath;
+
 };
 

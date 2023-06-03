@@ -1,14 +1,4 @@
-#include <wx/wx.h>
-#include <wx/statbmp.h>
-#include <map>
-#include <iomanip>
-
 #include "MainFrame.h"
-#include "TicketFrame.h"
-#include "RepFrame.h"
-#include "ContactFrame.h"
-#include "LoginFrame.h"
-#include "YourTicketFrame.h"
 
 MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 {
@@ -21,12 +11,10 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	panel2 = new wxPanel(mainPanel, wxID_ANY, wxPoint(0, 600), wxSize(1280, 200));
 	panel2->SetBackgroundColour(wxColor(0, 0, 0));
 
-	//panel 0
 	staticText0 = new wxStaticText(panel0, wxID_ANY, "Kino", wxDefaultPosition, wxSize(400, -1), wxALIGN_CENTER_HORIZONTAL);
 	staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	staticText0->SetForegroundColour(wxColor(57, 255, 20));
+	staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
-	//panel 1
 	wxInitAllImageHandlers();
 	wxImage image(wxT("image/kino.png"));
 	if (image.IsOk())
@@ -37,7 +25,6 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 		bitmap_image = new wxStaticBitmap(panel1, wxID_ANY, bitmap, wxDefaultPosition);
 	}
 
-	//panel 2
 	panel2Sizer = new wxBoxSizer(wxHORIZONTAL);
 	panel2->SetSizer(panel2Sizer);
 
@@ -67,46 +54,45 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 
 	mainPanel->Fit();
 
-	// Set the window size
 	SetSize(wxSize(1280, 720));
 }
 
 void MainFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-	RepFrame* repFrame = new RepFrame ("Repertuar");
+	repFrame = new RepFrame("Repertuar");
 	repFrame->Show();
 	repFrame->SetClientSize(1280, 720);
-	repFrame->SetMinClientSize(wxSize(1280, 720));
 	repFrame->SetMaxClientSize(wxSize(1280, 720));
 	repFrame->Center();
+	Close();
 }
 
 void MainFrame::OnButton1Clicked(wxCommandEvent& evt)
 {
-	TicketFrame* ticketFrame = new TicketFrame("Kup Bilet");
+	ticketFrame = new TicketFrame("Kup Bilet");
 	ticketFrame->Show();
 	ticketFrame->SetClientSize(1280, 720);
-	ticketFrame->SetMinClientSize(wxSize(1280, 720));
 	ticketFrame->SetMaxClientSize(wxSize(1280, 720));
 	ticketFrame->Center();
+	Close();
 }
 
 void MainFrame::OnButton2Clicked(wxCommandEvent& evt)
 {
-	YourTicketFrame* yourticketFrame = new YourTicketFrame("Twoje Bilety");
+	yourticketFrame = new YourTicketFrame("Twoje Bilety");
 	yourticketFrame->Show();
 	yourticketFrame->SetClientSize(1280, 720);
-	yourticketFrame->SetMinClientSize(wxSize(1280, 720));
 	yourticketFrame->SetMaxClientSize(wxSize(1280, 720));
 	yourticketFrame->Center();
+	Close();
 }
 
 void MainFrame::OnButton3Clicked(wxCommandEvent& evt)
 {
-	ContactFrame* contactFrame = new ContactFrame("Kontakt");
+	contactFrame = new ContactFrame("Kontakt");
 	contactFrame->Show();
 	contactFrame->SetClientSize(640, 310);
-	contactFrame->SetMinClientSize(wxSize(640, 310));
 	contactFrame->SetMaxClientSize(wxSize(640, 310));
 	contactFrame->Center();
+	Close();
 }
