@@ -188,6 +188,13 @@
     <ClCompile Include="RepFrame.cpp" />
     <ClCompile Include="TicketTypeFrame.cpp" />
     <ClCompile Include="YourTicketFrame.cpp" />
+    <ClCompile Include="data_class.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\movies.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\rooms.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\screening.json" />
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\tickets.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
