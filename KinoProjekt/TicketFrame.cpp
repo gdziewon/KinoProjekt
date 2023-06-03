@@ -19,7 +19,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     left_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(756, 520));
     left_panel->SetBackgroundColour(wxColour(255, 255, 255));
 
-    // Wybierz Film
+    // Wybierz film
     movieLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Film:", wxPoint(80,100), wxDefaultSize);
     movieLabelText->SetFont(fontLabel);
     movieLabelText->SetForegroundColour(wxColour(0, 0, 0));
