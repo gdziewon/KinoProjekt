@@ -1,5 +1,9 @@
 #include "TicketFrame.h"
 #include "TicketTypeFrame.h"
+#include "Screening.h"
+#include "Movie.h"
+#include "Room.h"
+#include "CinemaSystem.h"
 
 #include <wx/wx.h>
 #include <wx/datectrl.h>
@@ -124,6 +128,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
 
 void TicketFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
+    //TODO:
+    Screening
     TicketTypeFrame* tickettypeFrame = new TicketTypeFrame("Wybierz Bilet");
     tickettypeFrame->Show();
     tickettypeFrame->SetClientSize(1280, 720);

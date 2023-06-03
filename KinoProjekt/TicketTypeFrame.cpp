@@ -1,13 +1,14 @@
 #include "TicketFrame.h"
 #include "TicketTypeFrame.h"
 #include "SeatFrame.h"
+#include "Screening.h"
 
 #include <wx/wx.h>
 #include <wx/datectrl.h>
 #include <wx/dateevt.h>
 #include <wx/spinctrl.h>
 
-TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+TicketTypeFrame::TicketTypeFrame(const wxString& title, Screening& screening) : wxFrame(nullptr, wxID_ANY, title), screening(screening)
 {
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
     wxPanel* panel0 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
@@ -87,7 +88,9 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title) : wxFrame(nullptr, wxID_
 
 void TicketTypeFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    SeatFrame* seatFrame = new SeatFrame("Siedzenie");
+    int totalSeats = spinCtrl0->GetValue() + spinCtrl1->GetValue();
+    Screening& screening = GetScreening();
+    SeatFrame* seatFrame = new SeatFrame("Siedzenie", totalSeats, screening);
     seatFrame->Show();
     seatFrame->SetClientSize(1280, 720);
     seatFrame->SetMinClientSize(wxSize(1280, 720));

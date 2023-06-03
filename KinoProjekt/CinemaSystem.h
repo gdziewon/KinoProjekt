@@ -30,6 +30,10 @@ public:
 
     void displayBookings() const;
 
+    static std::shared_ptr<Screening> getScreening(std::shared_ptr<Movie> movie, const std::string& dateTime);
+
+    std::shared_ptr<Movie> getMovieFromTitle(const std::string& name);
+
 private:
     std::vector<std::shared_ptr<Movie>> movies_;
     std::vector<std::shared_ptr<Room>> rooms_;

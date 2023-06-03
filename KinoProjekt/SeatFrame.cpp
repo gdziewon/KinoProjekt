@@ -2,8 +2,11 @@
 #include "PaymentFrame.h"
 #include <wx/wx.h>
 
-SeatFrame::SeatFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
+SeatFrame::SeatFrame(const wxString& title, int totalSeats, Screening& screening) : wxFrame(nullptr, wxID_ANY, title), totalSeats(totalSeats), screening(screening)
 {
+    std::shared_ptr<Room> room = screening.getRoom();
+    GenerateSeats(*room);
+
     wxPanel* mainPanel = new wxPanel(this, wxID_ANY);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
     mainPanel->SetSizer(mainSizer);
@@ -48,4 +51,37 @@ void SeatFrame::OnButton0Clicked(wxCommandEvent& evt)
     paymentFrame->SetMinClientSize(wxSize(1280, 720));
     paymentFrame->SetMaxClientSize(wxSize(1280, 720));
     paymentFrame->Center();
+}
+void SeatFrame::GenerateSeats(Room& room) {
+    wxGridSizer* gridSizer = new wxGridSizer(room.getNumRows(), room.getNumSeatsPerRow(), 5, 5);
+    for (int i = 0; i < room.getNumRows(); i++) {
+        for (int j = 0; j < room.getNumSeatsPerRow(); j++) {
+            std::shared_ptr<Seat> seat = room.getSeats()[i * room.getNumSeatsPerRow() + j];
+            if (seat->getIsBooked()) {
+                wxPanel* panel = new wxPanel(this, wxID_ANY);
+                panel->SetBackgroundColour(wxColour(255, 0, 0));
+                gridSizer->Add(panel, 0, wxEXPAND);
+            }
+            else {
+                wxCheckBox* checkBox = new wxCheckBox(this, wxID_ANY, "");
+                checkBox->Bind(wxEVT_CHECKBOX, &SeatFrame::OnSeatSelected, this);
+                checkBox->SetForegroundColour(wxColour(0, 255, 0));
+                checkBox->SetBackgroundColour(wxColour(0, 0, 255));
+                gridSizer->Add(checkBox, 0, wxEXPAND);
+            }
+        }
+    }
+    this->SetSizerAndFit(gridSizer);
+}
+
+void SeatFrame::OnSeatSelected(wxCommandEvent& event) {
+    wxCheckBox* checkBox = dynamic_cast<wxCheckBox*>(event.GetEventObject());
+    if (checkBox) {
+        if (checkBox->IsChecked()) {
+            checkBox->SetForegroundColour(wxColour(0, 0, 255));
+        }
+        else {
+            checkBox->SetForegroundColour(wxColour(0, 255, 0));
+        }
+    }
 }
