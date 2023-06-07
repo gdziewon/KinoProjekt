@@ -28,7 +28,7 @@ private:
     int rows_;
     int columns_;
 };
-
+#endif ROOM_H
 
 /*class Room : public CinemaItem {
 public:
