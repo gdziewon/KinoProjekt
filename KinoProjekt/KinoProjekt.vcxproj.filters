@@ -158,5 +158,22 @@
     <ClCompile Include="MovieFrame.cpp">
       <Filter>Pliki źródłowe\Frame</Filter>
     </ClCompile>
+    <ClCompile Include="data_class.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\movies.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\rooms.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\tickets.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\screening.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
   </ItemGroup>
 </Project>
