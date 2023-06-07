@@ -11,18 +11,18 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     upper_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     upper_panel->SetBackgroundColour(wxColour(0, 0, 0));
 
-    staticText0 = new wxStaticText(upper_panel, wxID_ANY, "Kup Bilet", wxDefaultPosition, wxSize(400, -1), wxALIGN_CENTER_HORIZONTAL);
+    staticText0 = new wxStaticText(upper_panel, wxID_ANY, "Kup Bilet", wxPoint(80,5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     staticText0->SetFont(fontTitle);
-    staticText0->SetForegroundColour(wxColour(57, 255, 20));
+    staticText0->SetForegroundColour(wxColour(40, 126, 75));
 
     // Panel lewy
     left_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(756, 520));
-    left_panel->SetBackgroundColour(wxColour(255, 255, 255));
+    left_panel->SetBackgroundColour(wxColour(65, 65, 65));
 
     // Wybierz Film
     movieLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Film:", wxPoint(80,100), wxDefaultSize);
     movieLabelText->SetFont(fontLabel);
-    movieLabelText->SetForegroundColour(wxColour(0, 0, 0));
+    movieLabelText->SetForegroundColour(wxColour(255, 255, 255));
 
     wxArrayString choices;
     choices.Add("Joker");
@@ -43,7 +43,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     // Wybierz Datê 
     dateTimeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Datê:", wxPoint(325, 100), wxDefaultSize);
     dateTimeText->SetFont(fontLabel);
-    dateTimeText->SetForegroundColour(wxColour(0, 0, 0));
+    dateTimeText->SetForegroundColour(wxColour(255, 255, 255));
     
     datePicked = new wxDatePickerCtrl(left_panel, wxID_ANY, wxDefaultDateTime, wxPoint(285, 130), wxSize(200, 35), wxDP_DROPDOWN);
     datePicked->SetFont(fontLabel);
@@ -54,7 +54,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     // Wybierz Godzinê
     timeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Godzinê:", wxPoint(550, 100), wxDefaultSize);
     timeText->SetFont(fontLabel);
-    timeText->SetForegroundColour(wxColour(0, 0, 0));
+    timeText->SetForegroundColour(wxColour(255, 255, 255));
 
     wxArrayString hours;
     hours.Add("10:00");
@@ -69,7 +69,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     // Wybierz Typ
     typeLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Typ:", wxPoint(450, 230), wxDefaultSize);
     typeLabelText->SetFont(fontLabel);
-    typeLabelText->SetForegroundColour(wxColour(0, 0, 0));
+    typeLabelText->SetForegroundColour(wxColour(255, 255, 255));
     
     wxArrayString type;
     type.Add("2D");
@@ -83,7 +83,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     // Wybierz Jêzyk
     languageLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Jêzyk:", wxPoint(200, 230), wxDefaultSize);
     languageLabelText->SetFont(fontLabel);
-    languageLabelText->SetForegroundColour(wxColour(0, 0, 0));
+    languageLabelText->SetForegroundColour(wxColour(255, 255, 255));
     
     wxArrayString language;
     language.Add("Dubbing PL");
@@ -95,7 +95,19 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
    
     // Panel prawy
     right_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(504, 520));
-    right_panel->SetBackgroundColour(wxColour(255, 255, 0));
+    right_panel->SetBackgroundColour(wxColour(65, 65, 65));
+
+    wxInitAllImageHandlers();
+    panel_zdj = new wxPanel(right_panel, wxID_ANY, wxPoint(80, 4), wxSize(345, 512));
+    imagePath = wxT("image/movie1.jpg");
+    wxImage image(imagePath);
+    if (image.IsOk())
+    {
+        wxSize panel_size = panel_zdj->GetSize();
+        wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
+        wxBitmap bitmap(scaled_image);
+        imageBitmap = new wxStaticBitmap(panel_zdj, wxID_ANY, bitmap, wxDefaultPosition);
+    }
 
     // Panel dolny (stopka)
     lower_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1260, 100));
@@ -105,6 +117,10 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     button0 = new wxButton(lower_panel, wxID_ANY, "WYBÓR BILETÓW", wxPoint(560, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &TicketFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(fontLabel);
+
+    backbutton = new wxButton(lower_panel, wxID_ANY, "Powrót", wxPoint(80, 20), wxSize(200, 60));
+    backbutton->Bind(wxEVT_BUTTON, &TicketFrame::OnBackButtonClicked, this, wxID_ANY);
+    backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
     // Sizer g³ówny
     main_sizer = new wxBoxSizer(wxVERTICAL);
@@ -128,11 +144,22 @@ void TicketFrame::OnButton0Clicked(wxCommandEvent& evt)
     wxString type = listbox0->GetStringSelection();
     wxString language = listBox->GetStringSelection();
 
-    TicketTypeFrame* tickettypeFrame = new TicketTypeFrame("Wybierz Bilet", movie, date, time, type, language);
+    TicketTypeFrame* tickettypeFrame = new TicketTypeFrame("Wybierz Bilety", movie, date, time, type, language);
     tickettypeFrame->Show();
     tickettypeFrame->SetClientSize(1280, 720);
     tickettypeFrame->SetMaxClientSize(wxSize(1280, 720));
     tickettypeFrame->Center();
+    Close();
+}
+
+void TicketFrame::OnBackButtonClicked(wxCommandEvent& evt)
+{
+    MainFrame* mainFrame = new MainFrame("Kino");
+    mainFrame->Show();
+    mainFrame->SetClientSize(1280, 720);
+    mainFrame->SetMinClientSize(wxSize(1280, 720));
+    mainFrame->SetMaxClientSize(wxSize(1280, 720));
+    mainFrame->Center();
     Close();
 }
 

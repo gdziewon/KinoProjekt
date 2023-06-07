@@ -69,7 +69,7 @@ void MainFrame::OnButton0Clicked(wxCommandEvent& evt)
 
 void MainFrame::OnButton1Clicked(wxCommandEvent& evt)
 {
-	ticketFrame = new TicketFrame("Kup Bilet");
+	TicketFrame* ticketFrame = new TicketFrame("Kup Bilet");
 	ticketFrame->Show();
 	ticketFrame->SetClientSize(1280, 720);
 	ticketFrame->SetMaxClientSize(wxSize(1280, 720));
@@ -79,7 +79,7 @@ void MainFrame::OnButton1Clicked(wxCommandEvent& evt)
 
 void MainFrame::OnButton2Clicked(wxCommandEvent& evt)
 {
-	yourticketFrame = new YourTicketFrame("Twoje Bilety");
+	YourTicketFrame* yourticketFrame = new YourTicketFrame("Twoje Bilety");
 	yourticketFrame->Show();
 	yourticketFrame->SetClientSize(1280, 720);
 	yourticketFrame->SetMaxClientSize(wxSize(1280, 720));
@@ -94,5 +94,4 @@ void MainFrame::OnButton3Clicked(wxCommandEvent& evt)
 	contactFrame->SetClientSize(640, 310);
 	contactFrame->SetMaxClientSize(wxSize(640, 310));
 	contactFrame->Center();
-	Close();
 }

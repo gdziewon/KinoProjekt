@@ -2,6 +2,7 @@
 #include <wx/wx.h>
 #include <wx/datectrl.h>
 
+#include "MainFrame.h"
 #include "TicketTypeFrame.h"
 
 
@@ -12,6 +13,7 @@ public:
 private:
     void OnButton0Clicked(wxCommandEvent& evt);
     void Image(wxCommandEvent& evt);
+    void OnBackButtonClicked(wxCommandEvent& evt);
 
     // Panels
     wxPanel* right_panel;
@@ -37,6 +39,7 @@ private:
     wxListBox* listBox;
     wxDatePickerCtrl* datePicked;
     wxButton* button0;
+    wxButton* backbutton;
 
     // Fonts
     wxFont fontTitle;

@@ -10,14 +10,14 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
     panel1 = new wxScrolledWindow(mainPanel, wxID_ANY);
     panel1->SetSize(1280, 700);
     panel1->SetScrollbars(0, 20, 0, 84); // Set the scrollbar parameters
-    panel1->SetBackgroundColour(wxColor(255, 255, 255));
+    panel1->SetBackgroundColour(wxColor(65, 65, 65));
 
     panel2 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 80));
     panel2->SetBackgroundColour(wxColor(0, 0, 0));
 
-    staticText0 = new wxStaticText(panel0, wxID_ANY, "Repertuar", wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER_VERTICAL);
+    staticText0 = new wxStaticText(panel0, wxID_ANY, "Repertuar", wxPoint(80,3), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText0->SetFont(wxFont(50, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText0->SetForegroundColour(wxColor(57, 255, 20));
+    staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
     mainSizer = new wxBoxSizer(wxVERTICAL);
     mainSizer->Add(panel0, 0, wxEXPAND);
@@ -53,7 +53,7 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 
         movieTitleText = new wxStaticText(panel1, wxID_ANY, movieTitles[i], wxDefaultPosition, wxDefaultSize, wxALIGN_CENTER);
         movieTitleText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-        movieTitleText->SetForegroundColour(wxColor(0, 0, 0));
+        movieTitleText->SetForegroundColour(wxColor(255, 255, 255));
         movieTitleText->Bind(wxEVT_LEFT_DOWN, &RepFrame::OnMovieTitleClick, this);
         movieTitleText->SetId(i + 1);
 
@@ -67,7 +67,7 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 
 void RepFrame::OnMovieButtonClick(wxCommandEvent& evt)
 {
-    movieFrame = new MovieFrame("Film");
+    movieFrame = new MovieFrame("Twój Film");
     movieFrame->Show();
     movieFrame->SetClientSize(1280, 720);
     movieFrame->SetMinClientSize(wxSize(1280, 720));
@@ -77,7 +77,7 @@ void RepFrame::OnMovieButtonClick(wxCommandEvent& evt)
 
 void RepFrame::OnMovieTitleClick(wxMouseEvent& evt)
 {
-    movieFrame = new MovieFrame("Film");
+    movieFrame = new MovieFrame("Twój Film");
     movieFrame->Show();
     movieFrame->SetClientSize(1280, 720);
     movieFrame->SetMinClientSize(wxSize(1280, 720));

@@ -36,12 +36,12 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
     panel0 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 80));
     panel0->SetBackgroundColour(wxColor(0, 0, 0));
 
-    staticText0 = new wxStaticText(panel0, wxID_ANY, movieData.title, wxPoint(50,5), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
+    staticText0 = new wxStaticText(panel0, wxID_ANY, movieData.title, wxPoint(80,3), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText0->SetFont(wxFont(50, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText0->SetForegroundColour(wxColor(57, 255, 20));
+    staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
     panel1 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 80));
-    panel1->SetBackgroundColour(wxColor(255, 255, 255));
+    panel1->SetBackgroundColour(wxColor(65, 65, 65));
 
     callendar_zdj = new wxPanel(panel1, wxID_ANY, wxPoint(100, 25), wxSize(50, 50));
     wxImage callendar(wxT("image/Calendar.png"));
@@ -55,11 +55,11 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
 
     staticText = new wxStaticText(panel1, wxID_ANY, movieData.releaseDate, wxPoint(155, 45), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText->SetForegroundColour(wxColor(0, 0, 0));
+    staticText->SetForegroundColour(wxColor(255, 255, 255));
 
     dateLabel = new wxStaticText(panel1, wxID_ANY, "DATA PREMIERY:", wxPoint(155, 30), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     dateLabel->SetFont(wxFont(13, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
-    dateLabel->SetForegroundColour(wxColor(0, 0, 0));
+    dateLabel->SetForegroundColour(wxColor(255, 255, 255));
 
     stopwatch_zdj = new wxPanel(panel1, wxID_ANY, wxPoint(450, 25), wxSize(50, 50));
     wxImage stopwatch(wxT("image/Stopwatch.png"));
@@ -73,11 +73,11 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
 
     durationLabel = new wxStaticText(panel1, wxID_ANY, "CZAS TRWANIA:", wxPoint(505, 30), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     durationLabel->SetFont(wxFont(13, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
-    durationLabel->SetForegroundColour(wxColor(0, 0, 0));
+    durationLabel->SetForegroundColour(wxColor(255, 255, 255));
 
     staticText1 = new wxStaticText(panel1, wxID_ANY, movieData.duration, wxPoint(505, 45), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText1->SetForegroundColour(wxColor(0, 0, 0));
+    staticText1->SetForegroundColour(wxColor(255, 255, 255));
 
     movie_zdj = new wxPanel(panel1, wxID_ANY, wxPoint(100, 125), wxSize(50, 50));
     wxImage movie(wxT("image/Movie.png"));
@@ -91,11 +91,11 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
 
     directorLabel = new wxStaticText(panel1, wxID_ANY, "RE¯YSER:", wxPoint(155, 130), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     directorLabel->SetFont(wxFont(13, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
-    directorLabel->SetForegroundColour(wxColor(0, 0, 0));
+    directorLabel->SetForegroundColour(wxColor(255, 255, 255));
 
     staticText2 = new wxStaticText(panel1, wxID_ANY, movieData.director, wxPoint(155, 145), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText2->SetForegroundColour(wxColor(0, 0, 0));
+    staticText2->SetForegroundColour(wxColor(255, 255, 255));
 
     rating_zdj = new wxPanel(panel1, wxID_ANY, wxPoint(450, 125), wxSize(50, 50));
     wxImage rating(wxT("image/rating.png"));
@@ -109,19 +109,19 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
 
     ratingLabel = new wxStaticText(panel1, wxID_ANY, "OCENA:", wxPoint(505, 130), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     ratingLabel->SetFont(wxFont(13, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
-    ratingLabel->SetForegroundColour(wxColor(0, 0, 0));
+    ratingLabel->SetForegroundColour(wxColor(255, 255, 255));
 
     ratingText = new wxStaticText(panel1, wxID_ANY, movieData.rating+" / 10", wxPoint(505, 145), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     ratingText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    ratingText->SetForegroundColour(wxColor(0, 0, 0));
+    ratingText->SetForegroundColour(wxColor(255, 255, 255));
 
     staticText3 = new wxStaticText(panel1, wxID_ANY, "Gatunek:\n"+movieData.genre, wxPoint(100, 225), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText3->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText3->SetForegroundColour(wxColor(0, 0, 0));
+    staticText3->SetForegroundColour(wxColor(255, 255, 255));
 
     staticText4 = new wxStaticText(panel1, wxID_ANY, "Opis Filmu:\n"+movieData.description, wxPoint(100, 325), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     staticText4->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText4->SetForegroundColour(wxColor(0, 0, 0));
+    staticText4->SetForegroundColour(wxColor(255, 255, 255));
 
     wxInitAllImageHandlers();
     panel_zdj = new wxPanel(panel1, wxID_ANY, wxPoint(870, 25), wxSize(345, 512));

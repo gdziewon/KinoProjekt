@@ -20,6 +20,9 @@ private:
 	wxStaticText* emailText;
 	wxStaticText* staticText2;
 	wxStaticText* staticText3;
+	wxStaticText* staticText4;
+	wxStaticText* staticText5;
+	wxStaticText* staticText6;
 
 	wxFont titleFont;
 	wxFont textFont;

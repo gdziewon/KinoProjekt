@@ -28,8 +28,6 @@ private:
 	wxButton* button3;
 	
 	RepFrame* repFrame;
-	TicketFrame* ticketFrame;
-	YourTicketFrame* yourticketFrame;
 	ContactFrame* contactFrame;
 
 	void OnButton0Clicked(wxCommandEvent& evt);

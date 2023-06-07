@@ -11,12 +11,12 @@ SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxStrin
     panel0->SetBackgroundColour(wxColor(0, 0, 0));
     mainSizer->Add(panel0, 0, wxEXPAND);
 
-    staticText0 = new wxStaticText(panel0, wxID_ANY, "Wybierz Miejsca", wxDefaultPosition, wxSize(400, -1), wxALIGN_CENTER_HORIZONTAL);
+    staticText0 = new wxStaticText(panel0, wxID_ANY, "Wybierz Miejsca", wxPoint(80, 5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    staticText0->SetForegroundColour(wxColor(57, 255, 20));
+    staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
     panel1 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 520));
-    panel1->SetBackgroundColour(wxColor(255, 255, 255));
+    panel1->SetBackgroundColour(wxColor(65, 65, 65));
     mainSizer->Add(panel1, 1, wxEXPAND);
 
     panel2 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
