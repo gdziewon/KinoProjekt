@@ -27,13 +27,13 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     wxArrayString choices;
     choices.Add("Joker");
     choices.Add("Beau Is Afraid");
-    choices.Add("Movie 3");
-    choices.Add("Movie 4");
-    choices.Add("Movie 5");
-    choices.Add("Movie 6");
-    choices.Add("Movie 7");
-    choices.Add("Movie 8");
-    choices.Add("Movie 9");
+    choices.Add("Spider-Man: Across the Spider-Verse");
+    choices.Add("Guardians of the Galaxy Vol. 3");
+    choices.Add("The Shawshank Redemption");
+    choices.Add("The Godfather");
+    choices.Add("The Dark Knight");
+    choices.Add("The Wolf of Wall Street");
+    choices.Add("Forrest Gump");
 
     choice = new wxChoice(left_panel, wxID_ANY, wxPoint(40, 130), wxSize(200, -1), choices);
     choice->Connect(wxEVT_CHOICE, wxCommandEventHandler(TicketFrame::Image), nullptr, this);
@@ -114,7 +114,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     lower_panel->SetBackgroundColour(wxColour(0, 0, 0));
 
     // Przycisk "Wybór Biletów"
-    button0 = new wxButton(lower_panel, wxID_ANY, "WYBÓR BILETÓW", wxPoint(560, 20), wxSize(200, 60));
+    button0 = new wxButton(lower_panel, wxID_ANY, "Wybór Biletów", wxPoint(1000, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &TicketFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(fontLabel);
 
@@ -178,19 +178,19 @@ void TicketFrame::Image(wxCommandEvent& evt)
         imagePath = wxT("image/movie1.jpg");
     else if (numer_zdj == "Beau Is Afraid")
         imagePath = wxT("image/movie2.jpg");
-    else if (numer_zdj == "Movie 3")
+    else if (numer_zdj == "Spider-Man: Across the Spider-Verse")
         imagePath = wxT("image/movie3.jpg");
-    else if (numer_zdj == "Movie 4")
+    else if (numer_zdj == "Guardians of the Galaxy Vol. 3")
         imagePath = wxT("image/movie4.jpg");
-    else if (numer_zdj == "Movie 5")
+    else if (numer_zdj == "The Shawshank Redemption")
         imagePath = wxT("image/movie5.jpg");
-    else if (numer_zdj == "Movie 6")
+    else if (numer_zdj == "The Godfather")
         imagePath = wxT("image/movie6.jpg");
-    else if (numer_zdj == "Movie 7")
+    else if (numer_zdj == "The Dark Knight")
         imagePath = wxT("image/movie7.jpg");
-    else if (numer_zdj == "Movie 8")
+    else if (numer_zdj == "The Wolf of Wall Street")
         imagePath = wxT("image/movie8.jpg");
-    else if (numer_zdj == "Movie 9")
+    else if (numer_zdj == "Forrest Gump")
         imagePath = wxT("image/movie9.jpg");
 
     wxImage image(imagePath);

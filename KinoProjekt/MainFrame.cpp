@@ -71,7 +71,7 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 
 void MainFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-	repFrame = new RepFrame("Repertuar");
+	RepFrame* repFrame = new RepFrame("Repertuar");
 	repFrame->Show();
 	repFrame->SetClientSize(1280, 720);
 	repFrame->SetMaxClientSize(wxSize(1280, 720));

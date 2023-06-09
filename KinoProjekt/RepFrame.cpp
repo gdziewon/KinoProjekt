@@ -25,8 +25,8 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
     mainSizer->Add(panel2, 0, wxEXPAND);
 
     wxString movieTitles[9] = {
-        "Joker", "Beau Is Afraid", "Film 3", "Film 4", "Film 5",
-        "Film 6", "Film 7", "Film 8", "Film 9"
+        "Joker", "Beau Is Afraid", "Spider-Man", "Guardians of the Galaxy Vol. 3",
+        "The Shawshank Redemption", "The Godfather", "The Dark Knight", "The Wolf of Wall Street", "Forrest Gump"
     };
 
     for (int i = 0; i < 9; i++)
@@ -62,12 +62,16 @@ RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
         movieTitleText->SetPosition(wxPoint(titleX, titleY));
     }
     
+    backbutton = new wxButton(panel2, wxID_ANY, "Powrót", wxPoint(80, 16), wxSize(160, 48));
+    backbutton->Bind(wxEVT_BUTTON, &RepFrame::OnBackButtonClicked, this, wxID_ANY);
+    backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+
     mainPanel->SetSizer(mainSizer);
 }
 
 void RepFrame::OnMovieButtonClick(wxCommandEvent& evt)
 {
-    movieFrame = new MovieFrame("Twój Film");
+    MovieFrame* movieFrame = new MovieFrame("Twój Film");
     movieFrame->Show();
     movieFrame->SetClientSize(1280, 720);
     movieFrame->SetMinClientSize(wxSize(1280, 720));
@@ -77,10 +81,20 @@ void RepFrame::OnMovieButtonClick(wxCommandEvent& evt)
 
 void RepFrame::OnMovieTitleClick(wxMouseEvent& evt)
 {
-    movieFrame = new MovieFrame(L"Twój Film");
+    MovieFrame* movieFrame = new MovieFrame(L"Twój Film");
     movieFrame->Show();
     movieFrame->SetClientSize(1280, 720);
     movieFrame->SetMinClientSize(wxSize(1280, 720));
     movieFrame->SetMaxClientSize(wxSize(1280, 720));
     movieFrame->Center();
+}
+
+void RepFrame::OnBackButtonClicked(wxCommandEvent& evt)
+{
+    MainFrame* mainFrame = new MainFrame("Kino");
+    mainFrame->Show();
+    mainFrame->SetClientSize(1280, 720);
+    mainFrame->SetMaxClientSize(wxSize(1280, 720));
+    mainFrame->Center();
+    Close();
 }

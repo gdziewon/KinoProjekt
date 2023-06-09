@@ -140,9 +140,23 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
     panel2 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 80));
     panel2->SetBackgroundColour(wxColor(0, 0, 0));
 
+    backbutton = new wxButton(panel2, wxID_ANY, "Powrót", wxPoint(80, 16), wxSize(160, 48));
+    backbutton->Bind(wxEVT_BUTTON, &MovieFrame::OnBackButtonClicked, this, wxID_ANY);
+    backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+
     mainSizer = new wxBoxSizer(wxVERTICAL);
     mainSizer->Add(panel0, 0, wxEXPAND);
     mainSizer->Add(panel1, 1, wxEXPAND);
     mainSizer->Add(panel2, 0, wxEXPAND);
     mainPanel->SetSizer(mainSizer);
+}
+
+void MovieFrame::OnBackButtonClicked(wxCommandEvent& evt)
+{
+    RepFrame* repFrame = new RepFrame("Repertuar");
+    repFrame->Show();
+    repFrame->SetClientSize(1280, 720);
+    repFrame->SetMaxClientSize(wxSize(1280, 720));
+    repFrame->Center();
+    Close();
 }

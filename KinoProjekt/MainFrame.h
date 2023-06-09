@@ -27,7 +27,6 @@ private:
 	wxButton* button2;
 	wxButton* button3;
 	
-	RepFrame* repFrame;
 	ContactFrame* contactFrame;
 
 	void OnButton0Clicked(wxCommandEvent& evt);

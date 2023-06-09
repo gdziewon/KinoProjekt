@@ -1,6 +1,7 @@
 #pragma once
 #include <wx/wx.h>
 
+#include"MainFrame.h"
 #include "MovieFrame.h"
 
 class RepFrame : public wxFrame
@@ -10,6 +11,7 @@ public:
 private:
 	void OnMovieButtonClick(wxCommandEvent& event);
 	void OnMovieTitleClick(wxMouseEvent& event);
+	void OnBackButtonClicked(wxCommandEvent& evt);
 
 	wxPanel* mainPanel;
 	wxPanel* panel0;
@@ -23,5 +25,5 @@ private:
 
 	wxBoxSizer* mainSizer;
 
-	MovieFrame* movieFrame;
+	wxButton* backbutton;
 };

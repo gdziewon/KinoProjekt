@@ -1,11 +1,13 @@
 #pragma once
 #include <wx/wx.h>
+#include "RepFrame.h"
 
 class MovieFrame : public wxFrame
 {
 public:
 	MovieFrame(const wxString& title);
 private:
+	void OnBackButtonClicked(wxCommandEvent& evt);
 
 	wxPanel* mainPanel;
 	wxPanel* panel0;
@@ -38,4 +40,6 @@ private:
 	wxPanel* stopwatch_zdj;
 	wxPanel* movie_zdj;
 	wxPanel* rating_zdj;
+
+	wxButton* backbutton;
 };

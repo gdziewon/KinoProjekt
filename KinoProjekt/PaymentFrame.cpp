@@ -43,7 +43,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     seatText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     seatText->SetForegroundColour(wxColor(255, 255, 255));
 
-    priceText = new wxStaticText(leftPanel, wxID_ANY, message, wxPoint(100, 380), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    priceText = new wxStaticText(leftPanel, wxID_ANY, "Do zapłaty: " + message + " zł", wxPoint(100, 380), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     priceText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     priceText->SetForegroundColour(wxColor(255, 255, 255));
 
@@ -67,7 +67,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     surnameText->SetForegroundColour(wxColor(255, 255, 255));
     surnameCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(360, 110), wxSize(200, 30));
     surnameCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    surnameCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    surnameCtrl->SetForegroundColour(wxColor(0, 0, 0));
     surnameCtrl->SetMaxLength(20);
 
     emailText = new wxStaticText(rightPanel, wxID_ANY, "Adres e-mail:", wxPoint(100, 150), wxDefaultSize);
@@ -75,14 +75,14 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     emailText->SetForegroundColour(wxColor(255, 255, 255));
     emailCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 180), wxSize(200, 30));
     emailCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    emailCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    emailCtrl->SetForegroundColour(wxColor(0, 0, 0));
 
     phoneText = new wxStaticText(rightPanel, wxID_ANY, "Numer telefonu:", wxPoint(360, 150), wxDefaultSize);
     phoneText->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     phoneText->SetForegroundColour(wxColor(255, 255, 255));
     phoneCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "+48 ", wxPoint(360, 180), wxSize(200, 30));
     phoneCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    phoneCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    phoneCtrl->SetForegroundColour(wxColor(0, 0, 0));
     //phoneCtrl->SetValidator(wxTextValidator(wxFILTER_NUMERIC));
     phoneCtrl->SetMaxLength(15);
 
@@ -91,7 +91,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     cardText->SetForegroundColour(wxColor(255, 255, 255));
     cardNumberCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 290), wxSize(210, 30));
     cardNumberCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    cardNumberCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    cardNumberCtrl->SetForegroundColour(wxColor(0, 0, 0));
     cardNumberCtrl->SetMaxLength(19);
 
     datecardText = new wxStaticText(rightPanel, wxID_ANY, "Data:", wxPoint(100, 330), wxDefaultSize);
@@ -99,7 +99,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     datecardText->SetForegroundColour(wxColor(255, 255, 255));
     expiryDateCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 360), wxSize(65, 30));
     expiryDateCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    expiryDateCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    expiryDateCtrl->SetForegroundColour(wxColor(0, 0, 0));
     expiryDateCtrl->SetMaxLength(5);
 
     cvcText = new wxStaticText(rightPanel, wxID_ANY, "CVC:", wxPoint(255, 330), wxDefaultSize);
@@ -108,11 +108,15 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     cvcCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(260, 360), wxSize(50, 30));
     cvcCtrl->SetValidator(wxTextValidator(wxFILTER_NUMERIC));
     cvcCtrl->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-    cvcCtrl->SetForegroundColour(wxColor(255, 255, 255));
+    cvcCtrl->SetForegroundColour(wxColor(0, 0, 0));
     cvcCtrl->SetMaxLength(3);
 
     bottomPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     bottomPanel->SetBackgroundColour(wxColour(0, 0, 0));
+
+    backbutton = new wxButton(bottomPanel, wxID_ANY, "Anuluj", wxPoint(80, 20), wxSize(200, 60));
+    backbutton->Bind(wxEVT_BUTTON, &PaymentFrame::OnBackButtonClicked, this, wxID_ANY);
+    backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
     button0 = new wxButton(bottomPanel, wxID_ANY, L"Zamawiam i płacę", wxPoint(1060, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &PaymentFrame::OnButton0Clicked, this, wxID_ANY);
@@ -131,6 +135,17 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     mainPanel->SetSizer(mainSizer);
 
     mainSizer->Layout();
+}
+
+void PaymentFrame::OnBackButtonClicked(wxCommandEvent& evt)
+{
+    MainFrame* mainFrame = new MainFrame("Kino");
+    mainFrame->Show();
+    mainFrame->SetClientSize(1280, 720);
+    mainFrame->SetMinClientSize(wxSize(1280, 720));
+    mainFrame->SetMaxClientSize(wxSize(1280, 720));
+    mainFrame->Center();
+    Close();
 }
 
 void PaymentFrame::OnButton0Clicked(wxCommandEvent& evt)

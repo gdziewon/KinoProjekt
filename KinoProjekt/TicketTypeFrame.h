@@ -1,6 +1,7 @@
 #pragma once
 #include <wx/wx.h>
 #include "SeatFrame.h"
+#include "TicketFrame.h"
 
 #include <wx/spinctrl.h>
 
@@ -11,6 +12,7 @@ public:
 private:
 	void OnButton0Clicked(wxCommandEvent& evt);
 	void OnSpin(wxSpinEvent& event);
+	void OnBackButtonClicked(wxCommandEvent& evt);
 
 	wxPanel* mainPanel;
 	wxPanel* panel0;
@@ -32,6 +34,7 @@ private:
 	wxStaticText* label3;
 
 	wxButton* button0;
+	wxButton* backbutton;
 
 	wxBoxSizer* sizer1;
 	wxBoxSizer* mainSizer;

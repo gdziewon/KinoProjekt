@@ -23,19 +23,19 @@ SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxStrin
     panel2->SetBackgroundColour(wxColor(0, 0, 0));
     mainSizer->Add(panel2, 0, wxEXPAND);
 
-    panel2Sizer = new wxBoxSizer(wxHORIZONTAL);
-    panel2->SetSizer(panel2Sizer);
-
     staticText1 = new wxStaticText(panel2, wxID_ANY, "Twoje miejsca:", wxPoint(500,0), wxDefaultSize, wxALIGN_CENTER);
     staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText1->SetForegroundColour(wxColor(255, 255, 255));
 
-    button0 = new wxButton(panel2, wxID_ANY, L"Płatność", wxDefaultPosition, wxSize(200, 60));
+    button0 = new wxButton(panel2, wxID_ANY, L"Płatność", wxPoint(1000, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &SeatFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-    panel2Sizer->AddStretchSpacer(1);
-    panel2Sizer->Add(button0, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 20); // Zwiêksz prawy margines przycisku
+
+    backbutton = new wxButton(panel2, wxID_ANY, "Anuluj", wxPoint(80, 20), wxSize(200, 60));
+    backbutton->Bind(wxEVT_BUTTON, &SeatFrame::OnBackButtonClicked, this, wxID_ANY);
+    backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+
 
 }
 
@@ -47,5 +47,16 @@ void SeatFrame::OnButton0Clicked(wxCommandEvent& evt)
     paymentFrame->SetMinClientSize(wxSize(1280, 720));
     paymentFrame->SetMaxClientSize(wxSize(1280, 720));
     paymentFrame->Center();
+    Close();
+}
+
+void SeatFrame::OnBackButtonClicked(wxCommandEvent& evt)
+{
+    MainFrame* mainFrame = new MainFrame("Kino");
+    mainFrame->Show();
+    mainFrame->SetClientSize(1280, 720);
+    mainFrame->SetMinClientSize(wxSize(1280, 720));
+    mainFrame->SetMaxClientSize(wxSize(1280, 720));
+    mainFrame->Center();
     Close();
 }
