@@ -1,4 +1,4 @@
-#include "SeatFrame.h"
+ï»¿#include "SeatFrame.h"
 
 SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message)
     : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message)
@@ -30,18 +30,18 @@ SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxStrin
     staticText1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText1->SetForegroundColour(wxColor(255, 255, 255));
 
-    button0 = new wxButton(panel2, wxID_ANY, "P³atnoœæ", wxDefaultPosition, wxSize(200, 60));
+    button0 = new wxButton(panel2, wxID_ANY, L"PÅ‚atnoÅ›Ä‡", wxDefaultPosition, wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &SeatFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
     panel2Sizer->AddStretchSpacer(1);
-    panel2Sizer->Add(button0, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 20); // Zwiêksz prawy margines przycisku
+    panel2Sizer->Add(button0, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 20); // ZwiÃªksz prawy margines przycisku
 
 }
 
 void SeatFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    PaymentFrame* paymentFrame = new PaymentFrame("P³atnoœæ", movie, date, time, type, language, message);
+    PaymentFrame* paymentFrame = new PaymentFrame(L"PÅ‚atnoÅ›Ä‡", movie, date, time, type, language, message);
     paymentFrame->Show();
     paymentFrame->SetClientSize(1280, 720);
     paymentFrame->SetMinClientSize(wxSize(1280, 720));

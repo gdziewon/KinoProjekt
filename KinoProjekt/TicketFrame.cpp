@@ -1,4 +1,4 @@
-#include "TicketFrame.h"
+ï»¿#include "TicketFrame.h"
 
 TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 {
@@ -7,7 +7,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     fontLabel = wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     fontChoice = wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
 
-    // Panel górny
+    // Panel gÃ³rny
     upper_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     upper_panel->SetBackgroundColour(wxColour(0, 0, 0));
 
@@ -40,8 +40,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     choice->SetFont(fontChoice);
     choice->SetSelection(0);
 
-    // Wybierz Datê 
-    dateTimeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Datê:", wxPoint(325, 100), wxDefaultSize);
+    // Wybierz DatÃª 
+    dateTimeText = new wxStaticText(left_panel, wxID_ANY, L"Wybierz DatÄ™:", wxPoint(325, 100), wxDefaultSize);
     dateTimeText->SetFont(fontLabel);
     dateTimeText->SetForegroundColour(wxColour(255, 255, 255));
     
@@ -51,8 +51,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     maxDate.Add(wxDateSpan::Months(1));
     datePicked->SetRange(wxDateTime::Today(), maxDate);
 
-    // Wybierz Godzinê
-    timeText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Godzinê:", wxPoint(550, 100), wxDefaultSize);
+    // Wybierz GodzinÃª
+    timeText = new wxStaticText(left_panel, wxID_ANY, L"Wybierz GodzinÄ™:", wxPoint(550, 100), wxDefaultSize);
     timeText->SetFont(fontLabel);
     timeText->SetForegroundColour(wxColour(255, 255, 255));
 
@@ -67,7 +67,7 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     hourChoice->SetSelection(0);
     
     // Wybierz Typ
-    typeLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Typ:", wxPoint(450, 230), wxDefaultSize);
+    typeLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz typ biletu:", wxPoint(450, 230), wxDefaultSize);
     typeLabelText->SetFont(fontLabel);
     typeLabelText->SetForegroundColour(wxColour(255, 255, 255));
     
@@ -80,8 +80,8 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     listbox0->SetFont(fontLabel);
     listbox0->SetSelection(0);
     
-    // Wybierz Jêzyk
-    languageLabelText = new wxStaticText(left_panel, wxID_ANY, "Wybierz Jêzyk:", wxPoint(200, 230), wxDefaultSize);
+    // Wybierz JÃªzyk
+    languageLabelText = new wxStaticText(left_panel, wxID_ANY, L"Wybierz JÄ™zyk:", wxPoint(200, 230), wxDefaultSize);
     languageLabelText->SetFont(fontLabel);
     languageLabelText->SetForegroundColour(wxColour(255, 255, 255));
     
@@ -113,16 +113,16 @@ TicketFrame::TicketFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, tit
     lower_panel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(1260, 100));
     lower_panel->SetBackgroundColour(wxColour(0, 0, 0));
 
-    // Przycisk "Wybór Biletów"
-    button0 = new wxButton(lower_panel, wxID_ANY, "WYBÓR BILETÓW", wxPoint(560, 20), wxSize(200, 60));
+    // Przycisk "WybÃ³r BiletÃ³w"
+    button0 = new wxButton(lower_panel, wxID_ANY, "WYBÃ“R BILETÃ“W", wxPoint(560, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &TicketFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(fontLabel);
 
-    backbutton = new wxButton(lower_panel, wxID_ANY, "Powrót", wxPoint(80, 20), wxSize(200, 60));
+    backbutton = new wxButton(lower_panel, wxID_ANY, "PowrÃ³t", wxPoint(80, 20), wxSize(200, 60));
     backbutton->Bind(wxEVT_BUTTON, &TicketFrame::OnBackButtonClicked, this, wxID_ANY);
     backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-    // Sizer g³ówny
+    // Sizer gÂ³Ã³wny
     main_sizer = new wxBoxSizer(wxVERTICAL);
     main_sizer->Add(upper_panel, 0, wxEXPAND);
 

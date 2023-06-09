@@ -1,4 +1,4 @@
-#include "ContactFrame.h"
+ï»¿#include "ContactFrame.h"
 
 ContactFrame::ContactFrame(const wxString& title) : wxDialog(nullptr, wxID_ANY, title)
 {
@@ -35,7 +35,7 @@ ContactFrame::ContactFrame(const wxString& title) : wxDialog(nullptr, wxID_ANY, 
 	staticText3->SetFont(textFont);
 	staticText3->SetForegroundColour(textColors);
 
-	staticText4 = new wxStaticText(panel1, wxID_ANY, "Eryk Dziewoñski", wxPoint(280, 105), wxDefaultSize);
+	staticText4 = new wxStaticText(panel1, wxID_ANY, L"Eryk DziewoÅ„ski", wxPoint(280, 105), wxDefaultSize);
 	staticText4->SetFont(textFont);
 	staticText4->SetForegroundColour(textColors);
 
@@ -43,7 +43,7 @@ ContactFrame::ContactFrame(const wxString& title) : wxDialog(nullptr, wxID_ANY, 
 	staticText5->SetFont(textFont);
 	staticText5->SetForegroundColour(textColors);
 
-	staticText6 = new wxStaticText(panel1, wxID_ANY, "Micha³ Radziukiewicz", wxPoint(280, 140), wxDefaultSize);
+	staticText6 = new wxStaticText(panel1, wxID_ANY, L"MichaÅ‚ Radziukiewicz", wxPoint(280, 140), wxDefaultSize);
 	staticText6->SetFont(textFont);
 	staticText6->SetForegroundColour(textColors);
 

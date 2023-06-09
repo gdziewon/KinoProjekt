@@ -1,0 +1,83 @@
+[
+  {
+
+    "id": 1,
+    "name": "Rise of Heroes",
+    "actors": [ "John Smith", "Emily Blunt", "Michael Williams" ],
+    "description": "An action-packed film featuring the journey of ordinary people transforming into extraordinary heroes.",
+    "director": "Christopher Nolan",
+    "genre": "Action",
+    "release_Date": "2023-05-30",
+    "runningTime": 120
+  },
+  {
+    "id": 2,
+    "name": "Love in Paris",
+    "actors": [ "Natalie Portman", "Robert Pattinson" ],
+    "description": "A romantic drama set in the beautiful city of Paris. Two strangers meet and fall in love, testing the bounds of fate and destiny.",
+    "director": "Woody Allen",
+    "genre": "Romantic",
+    "release_Date": "2023-04-30",
+    "runningTime": 110
+  },
+  {
+    "id": 3,
+    "name": "The Last Voyage",
+    "actors": [ "Tom Cruise", "Scarlett Johansson", "Samuel L. Jackson" ],
+    "description": "A thrilling adventure where a group of explorers embarks on a perilous journey to discover a hidden treasure.",
+    "director": "Steven Spielberg",
+    "genre": "Adventure",
+    "release_Date": "2023-07-15",
+    "runningTime": 135
+  },
+  {
+    "id": 4,
+    "name": "Dream Catcher",
+    "actors": [ "Brad Pitt", "Jennifer Lawrence", "Morgan Freeman" ],
+    "description": "A mind-bending sci-fi thriller that explores the concept of dreams and the power of the human mind.",
+    "director": "Denis Villeneuve",
+    "genre": "Sci-Fi",
+    "release_Date": "2023-08-20",
+    "runningTime": 125
+  },
+  {
+    "id": 5,
+    "name": "The Lost City",
+    "actors": [ "Dwayne Johnson", "Gal Gadot", "Ryan Reynolds" ],
+    "description": "An action-comedy where a renowned author finds herself on a real-life adventure in search of a hidden city.",
+    "director": "Adam McKay",
+    "genre": "Action-Comedy",
+    "release_Date": "2023-06-25",
+    "runningTime": 115
+  },
+  {
+    "id": 6,
+    "name": "Infinite Horizon",
+    "actors": [ "Chris Hemsworth", "Emma Stone", "Idris Elba" ],
+    "description": "A gripping drama set in a post-apocalyptic world, following the journey of survivors as they search for hope and redemption.",
+    "director": "Alfonso Cuarón",
+    "genre": "Drama",
+    "release_Date": "2023-09-10",
+    "runningTime": 140
+  },
+  {
+    "id": 7,
+    "name": "The Enigma Project",
+    "actors": [ "Leonardo DiCaprio", "Margot Robbie", "Mark Ruffalo" ],
+    "description": "A thrilling mystery where a team of investigators delves into a complex web of secrets and deception.",
+    "director": "David Fincher",
+    "genre": "Mystery",
+    "release_Date": "2023-11-05",
+    "runningTime": 150
+  },
+  {
+    "id": 8,
+    "name": "City of Shadows",
+    "actors": [ "Jake Gyllenhaal", "Emma Watson", "Joaquin Phoenix" ],
+    "description": "A dark crime noir set in a gritty city, following a detective's quest to unravel a series of gruesome murders.",
+    "director": "Martin Scorsese",
+    "genre": "Crime",
+    "release_Date": "2023-10-15",
+    "runningTime": 130
+  }
+]

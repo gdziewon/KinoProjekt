@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "seatsQuantity": 150,
+        "rows": 15,
+        "columns": 10
+    },
+    {
+        "id": "2",
+        "seatsQuantity": 50,
+        "rows": 5,
+        "columns": 10
+    },
+    {
+        "id": "3",
+        "seatsQuantity": 150,
+        "rows": 15,
+        "columns": 10
+    },
+    {
+        "id": "4",
+        "seatsQuantity": 50,
+        "rows": 5,
+        "columns": 10
+    },
+    {
+        "id": "5",
+        "seatsQuantity": 80,
+        "rows": 8,
+        "columns": 10
+    },
+    {
+        "id": "6",
+        "seatsQuantity": 120,
+        "rows": 12,
+        "columns": 10
+    },
+    {
+        "id": "7",
+        "seatsQuantity": 200,
+        "rows": 20,
+        "columns": 10
+    },
+    {
+        "id": "8",
+        "seatsQuantity": 100,
+        "rows": 10,
+        "columns": 10
+    }
+]

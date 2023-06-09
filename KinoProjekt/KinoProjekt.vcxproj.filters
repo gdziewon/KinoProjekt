@@ -1,162 +1,200 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Pliki źródłowe">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="image">
+      <UniqueIdentifier>{915f1387-f34f-4452-94b5-1e9f9d962592}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe">
+    <Filter Include="Headers">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Pliki zasobów">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\Frame">
-      <UniqueIdentifier>{9675c24d-4db1-479d-bf84-34b7f80ff67c}</UniqueIdentifier>
+    <Filter Include="json">
+      <UniqueIdentifier>{86b6ff95-6bc8-436c-9e87-5360ecefac58}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki źródłowe\Frame">
+    <Filter Include="App">
+      <UniqueIdentifier>{529aeecf-43c7-4a63-b79f-03aef1284257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Booking">
+      <UniqueIdentifier>{6af9527f-e27e-489e-a07e-d22c19f5aba0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CinemaItem">
+      <UniqueIdentifier>{533c15c4-1664-4626-97bc-6f5bc97042f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CinemaSystem">
+      <UniqueIdentifier>{a9e93d0f-b933-441f-b39c-357ae2303706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseManager">
+      <UniqueIdentifier>{12bfd565-b2f8-4ace-b821-5a7c90e3fd07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Movie">
+      <UniqueIdentifier>{d0383e47-1e41-42bf-b531-ff2be41b6818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Room">
+      <UniqueIdentifier>{3bed0abb-fdb4-4b19-bca9-0afb3d40bc5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PaymentProcessor">
+      <UniqueIdentifier>{d10aabd8-9c85-4c29-836d-24d53b850692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schedule">
+      <UniqueIdentifier>{458106f5-e4dc-4f30-8f87-3b2709dbc32a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screening">
+      <UniqueIdentifier>{29ea8865-171c-47c9-88f2-34868a972123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Seat">
+      <UniqueIdentifier>{cdfe07c7-2108-45b3-af52-f924f96435b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ticket">
+      <UniqueIdentifier>{63e5733a-f45d-41c4-8457-f43c758eb26e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="externalLibs">
+      <UniqueIdentifier>{03063b37-1802-4bf4-878e-6d2bda27c461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frame">
       <UniqueIdentifier>{5691079f-3041-41e0-b39e-fc3a8893c152}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CinemaItem.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Movie.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Seat.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Screening.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Ticket.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="CinemaSystem.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="DatabaseManager.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="PaymentProcessor.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Booking.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Schedule.h">
-      <Filter>Pliki nagłówkowe</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="App.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>App</Filter>
     </ClInclude>
-    <ClInclude Include="MainFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="Booking.h">
+      <Filter>Booking</Filter>
     </ClInclude>
-    <ClInclude Include="RepFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="CinemaItem.h">
+      <Filter>CinemaItem</Filter>
     </ClInclude>
-    <ClInclude Include="ContactFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="CinemaSystem.h">
+      <Filter>CinemaSystem</Filter>
     </ClInclude>
-    <ClInclude Include="SeatFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="DatabaseManager.h">
+      <Filter>DatabaseManager</Filter>
     </ClInclude>
-    <ClInclude Include="TicketTypeFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="Movie.h">
+      <Filter>Movie</Filter>
     </ClInclude>
-    <ClInclude Include="YourTicketFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="Room.h">
+      <Filter>Room</Filter>
     </ClInclude>
-    <ClInclude Include="TicketFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="PaymentProcessor.h">
+      <Filter>PaymentProcessor</Filter>
     </ClInclude>
-    <ClInclude Include="PaymentFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="Schedule.h">
+      <Filter>Schedule</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Pliki nagłówkowe</Filter>
+    <ClInclude Include="Screening.h">
+      <Filter>Screening</Filter>
     </ClInclude>
-    <ClInclude Include="MovieFrame.h">
-      <Filter>Pliki nagłówkowe\Frame</Filter>
+    <ClInclude Include="Seat.h">
+      <Filter>Seat</Filter>
+    </ClInclude>
+    <ClInclude Include="Ticket.h">
+      <Filter>Ticket</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>externalLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="PaymentFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="RepFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="SeatFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="TicketFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="TicketTypeFrame.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="YourTicketFrame.h">
+      <Filter>Frame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Booking.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Schedule.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="DatabaseManager.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="PaymentProcessor.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="CinemaSystem.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Screening.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="CinemaItem.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Movie.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Seat.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Ticket.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="App.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="MainFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="PaymentFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="TicketFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="TicketTypeFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="YourTicketFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="SeatFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="RepFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="ContactFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="MovieFrame.cpp">
-      <Filter>Pliki źródłowe\Frame</Filter>
+      <Filter>Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="Booking.cpp">
+      <Filter>Booking</Filter>
+    </ClCompile>
+    <ClCompile Include="CinemaItem.cpp">
+      <Filter>CinemaItem</Filter>
+    </ClCompile>
+    <ClCompile Include="CinemaSystem.cpp">
+      <Filter>CinemaSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseManager.cpp">
+      <Filter>DatabaseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Movie.cpp">
+      <Filter>Movie</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Room</Filter>
+    </ClCompile>
+    <ClCompile Include="PaymentProcessor.cpp">
+      <Filter>PaymentProcessor</Filter>
+    </ClCompile>
+    <ClCompile Include="Schedule.cpp">
+      <Filter>Schedule</Filter>
+    </ClCompile>
+    <ClCompile Include="Screening.cpp">
+      <Filter>Screening</Filter>
+    </ClCompile>
+    <ClCompile Include="Seat.cpp">
+      <Filter>Seat</Filter>
+    </ClCompile>
+    <ClCompile Include="Ticket.cpp">
+      <Filter>Ticket</Filter>
     </ClCompile>
     <ClCompile Include="data_class.cpp">
       <Filter>Pliki źródłowe</Filter>
@@ -175,5 +213,63 @@
     <None Include="..\..\..\..\..\..\studia\przedmioty\c++\jsons\screening.json">
       <Filter>Pliki zasobów</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\movies.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\rooms.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\screening.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\tickets.json">
+      <Filter>json</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="image\Calendar.png">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\kino.png">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\Movie.png">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie1.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie2.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie3.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie4.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie5.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie6.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie7.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie8.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\movie9.jpg">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\rating.png">
+      <Filter>image</Filter>
+    </Image>
+    <Image Include="image\Stopwatch.png">
+      <Filter>image</Filter>
+    </Image>
   </ItemGroup>
 </Project>

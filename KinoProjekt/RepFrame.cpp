@@ -77,7 +77,7 @@ void RepFrame::OnMovieButtonClick(wxCommandEvent& evt)
 
 void RepFrame::OnMovieTitleClick(wxMouseEvent& evt)
 {
-    movieFrame = new MovieFrame("Twój Film");
+    movieFrame = new MovieFrame(L"Twój Film");
     movieFrame->Show();
     movieFrame->SetClientSize(1280, 720);
     movieFrame->SetMinClientSize(wxSize(1280, 720));

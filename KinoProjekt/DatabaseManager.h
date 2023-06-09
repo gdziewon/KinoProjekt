@@ -1,7 +1,9 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
-#include <unordered_map>
+#include "json.hpp"
+#include <fstream>
+#include <wx/wx.h>
 #include "Movie.h"
 #include "Room.h"
 #include "Screening.h"
@@ -9,29 +11,42 @@
 
 class DatabaseManager {
 public:
-    DatabaseManager();
+	DatabaseManager();
 
-    // Movie-related methods
-    std::unordered_map<int, std::shared_ptr<Movie>> loadMovies();
+	// Movie-related methods
+	void loadMovies();
+	std::shared_ptr<Movie> getMovie(int movieId);
+	std::shared_ptr<Movie> getMovie(std::string movieTitle);
 
-    void saveMovies(const std::unordered_map<int, std::shared_ptr<Movie>>& movies);
+	//void saveMovies(const std::unordered_map<int, std::shared_ptr<Movie>>& movies);
 
-    // Room-related methods
-    std::unordered_map<int, std::shared_ptr<Room>> loadRooms();
+	 // Room-related methods
+	void loadRooms();
+	std::shared_ptr<Room> getRoom(int roomId);
 
-    void saveRooms(const std::unordered_map<int, std::shared_ptr<Room>>& rooms);
+	//void saveRooms(const std::unordered_map<int, std::shared_ptr<Room>>& rooms);
 
-    // Screening-related methods
-    std::unordered_map<int, std::shared_ptr<Screening>> loadScreenings();
+	// Screening-related methods
+	void loadScreenings();
+	std::shared_ptr<Screening> getScreening(int screeningId);
 
-    void saveScreenings(const std::unordered_map<int, std::shared_ptr<Screening>>& screenings);
+	// Ticket-related methods
+	void loadTickets();
 
-    // Ticket-related methods
-    std::unordered_map<int, std::shared_ptr<Ticket>> loadTickets();
 
-    void saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets);
+	//void saveScreenings(const std::unordered_map<int, std::shared_ptr<Screening>>& screenings);
+	bool isSeatReserved(int movieId, int roomId, int row, int column);
+
+	std::shared_ptr<Seat> getSeat(int row, int column, const std::vector<std::shared_ptr<Seat>>& seats_);
+
+	//void DatabaseManager::saveTicket(int movieId, int roomId, int row, int column);
+
+	void saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets);
 
 private:
-    // TODO: Database connection information
+	std::vector<std::shared_ptr<Movie>> movies_;
+	std::vector<std::shared_ptr<Screening>> screenings_;
+	std::vector<std::shared_ptr<Room>> rooms_;
+	std::vector<std::shared_ptr<Ticket>> tickets_;
 };
 #endif

@@ -17,7 +17,7 @@ YourTicketFrame::YourTicketFrame(const wxString& title) : wxFrame(nullptr, wxID_
     bottomPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     bottomPanel->SetBackgroundColour(wxColour(0, 0, 0));
 
-    backbutton = new wxButton(bottomPanel, wxID_ANY, "Powrót", wxPoint(80,20), wxSize(200, 60));
+    backbutton = new wxButton(bottomPanel, wxID_ANY, L"Powrót", wxPoint(80,20), wxSize(200, 60));
     backbutton->Bind(wxEVT_BUTTON, &YourTicketFrame::OnBackButtonClicked, this, wxID_ANY);
     backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 

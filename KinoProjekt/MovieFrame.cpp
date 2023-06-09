@@ -1,4 +1,4 @@
-#include "MovieFrame.h"
+ï»¿#include "MovieFrame.h"
 
 struct MovieData
 {
@@ -20,8 +20,11 @@ MovieData GetMovieDataFromDatabase()
     movie.duration = "122 minuty";
     movie.director = "Todd Phillips";
     movie.rating = "8.4";
-    movie.genre = "Krymina³ Dramat Thriller";
-    movie.description = "Joker to film o tytu³owym bohaterze z uniwersum Batmana.\nTo historia Arthura Flecka, cz³owieka cierpi¹cego na\nzaburzenia psychiczne, który wpl¹tuje siê w œwiat\nprzestêpczoœci i staje siê ikon¹ z³a.";
+    movie.genre = L"KryminaÅ‚ Dramat Thriller";
+        movie.description = L"Joker to film o tytuÅ‚owym bohaterze z uniwersum Batmana.\
+    \nTo historia Arthura Flecka, czÅ‚owieka cierpiÄ…cego na\nzaburzenia psychiczne,\
+    ktÃ³ry wplÄ…tuje siÄ™ w Å›wiat\nprzestÄ™pczoÅ›ci i staje siÄ™ ikonÄ… zÅ‚a.";
+
     movie.imagePath = wxT("image/movie1.jpg");
 
     return movie;
@@ -89,7 +92,7 @@ MovieFrame::MovieFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title
         imageBitmap3 = new wxStaticBitmap(movie_zdj, wxID_ANY, bitmap3, wxDefaultPosition);
     }
 
-    directorLabel = new wxStaticText(panel1, wxID_ANY, "RE¯YSER:", wxPoint(155, 130), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
+    directorLabel = new wxStaticText(panel1, wxID_ANY, L"REÅ»YSER:", wxPoint(155, 130), wxDefaultSize, wxALIGN_CENTER_VERTICAL);
     directorLabel->SetFont(wxFont(13, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
     directorLabel->SetForegroundColour(wxColor(255, 255, 255));
 

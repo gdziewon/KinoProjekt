@@ -1,0 +1,61 @@
+{
+    "customers": [
+      {
+        "room_id":  1,
+        "customer_name": "Alex Johnson",
+        "seance_id": "3",
+        "row": 5,
+        "column": 6
+      },
+      {
+        "room_id": 2,
+        "customer_name": "Lisa Smith",
+        "seance_id": "4",
+        "row": 3,
+        "column": 4
+      },
+      {
+        "room_id": 3,
+        "customer_name": "Michael Brown",
+        "seance_id": "5",
+        "row": 2,
+        "column": 8
+      },
+      {
+        "room_id": 4,
+        "customer_name": "Emily Davis",
+        "seance_id": "6",
+        "row": 7,
+        "column": 2
+      },
+      {
+        "room_id": 5,
+        "customer_name": "Daniel Wilson",
+        "seance_id": "7",
+        "row": 1,
+        "column": 9
+      },
+      {
+        "room_id": 6,
+        "customer_name": "Sophia Miller",
+        "seance_id": "8",
+        "row": 6,
+        "column": 7
+      },
+      {
+        "room_id": 7,
+        "customer_name": "William Anderson",
+        "seance_id": "9",
+        "row": 4,
+        "column": 3
+      },
+      {
+        "room_id": 8,
+        "customer_name": "Olivia Taylor",
+        "seance_id": "10",
+        "row": 9,
+        "column": 1
+      }
+    ]
+  }
+  

@@ -5,14 +5,14 @@
 
 class Seat : public CinemaItem {
 public:
-    Seat(int id, int rowNum, int seatNum);
+    Seat(int id, int rowNum, int columnNum, bool isBooked = false);
 
     int getRowNum() const;
-    int getSeatNum() const;
+    int getColumnNum() const;
     bool getIsBooked() const;
 
     void setRowNum(int rowNum);
-    void setSeatNum(int seatNum);
+    void setColumnNum(int columnNum);
     void setIsBooked(bool isBooked);
 
     void display() const override {
@@ -20,13 +20,13 @@ public:
             << ", Name: " << getName()
             << ", Description: " << getDescription()
             << ", Row number: " << rowNum
-            << ", Seat number: " << seatNum
+            << ", Seat number: " << columnNum
             << ", Is booked: " << (isBooked ? "Yes" : "No") << std::endl;
     }
 
 private:
     int rowNum;
-    int seatNum;
+    int columnNum;
     bool isBooked;
 };
 

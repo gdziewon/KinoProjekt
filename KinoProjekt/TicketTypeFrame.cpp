@@ -1,4 +1,4 @@
-#include "TicketTypeFrame.h"
+ï»¿#include "TicketTypeFrame.h"
 
 TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language)
     : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language)
@@ -11,7 +11,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     panel2 = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     panel2->SetBackgroundColour(wxColor(0, 0, 0));
 
-    staticText0 = new wxStaticText(panel0, wxID_ANY, "Rodzaj Biletów", wxPoint(80,5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    staticText0 = new wxStaticText(panel0, wxID_ANY, L"Rodzaj BiletÃ³w", wxPoint(80,5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
@@ -19,7 +19,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     label1->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     label1->SetForegroundColour(wxColor(255, 255, 255));
  
-    label2 = new wxStaticText(panel1, wxID_ANY, "Iloœæ", wxPoint(630, 100), wxDefaultSize, wxALIGN_CENTER);
+    label2 = new wxStaticText(panel1, wxID_ANY, L"IloÅ›Ä‡", wxPoint(630, 100), wxDefaultSize, wxALIGN_CENTER);
     label2->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     label2->SetForegroundColour(wxColor(255, 255, 255));
 
@@ -37,7 +37,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     spinCtrl0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinCtrl0->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 
-    staticText6 = new wxStaticText(panel1, wxID_ANY, "21 z³", wxPoint(890, 150), wxDefaultSize, wxALIGN_CENTER);
+    staticText6 = new wxStaticText(panel1, wxID_ANY, L"21 zÅ‚", wxPoint(890, 150), wxDefaultSize, wxALIGN_CENTER);
     staticText6->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText6->SetForegroundColour(wxColor(255, 255, 255));
 
@@ -50,11 +50,11 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     spinCtrl1->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinCtrl1->Bind(wxEVT_SPINCTRL, &TicketTypeFrame::OnSpin, this);
 
-    staticText7 = new wxStaticText(panel1, wxID_ANY, "16 z³", wxPoint(890, 200), wxDefaultSize, wxALIGN_CENTER);
+    staticText7 = new wxStaticText(panel1, wxID_ANY, L"16 zÅ‚", wxPoint(890, 200), wxDefaultSize, wxALIGN_CENTER);
     staticText7->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText7->SetForegroundColour(wxColor(255, 255, 255));
 
-    button0 = new wxButton(panel1, wxID_ANY, "WYBÓR MIEJSC", wxPoint(560,250), wxSize(200, 60));
+    button0 = new wxButton(panel1, wxID_ANY, L"WYBÃ“R MIEJSC", wxPoint(560,250), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &TicketTypeFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
@@ -64,7 +64,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     mainSizer->Add(panel2, 0, wxEXPAND);
     mainPanel->SetSizer(mainSizer);
 
-    spinText = new wxStaticText(panel1, wxID_ANY, "Do zap³aty: ", wxPoint(590, 320), wxDefaultSize, wxALIGN_CENTER);
+    spinText = new wxStaticText(panel1, wxID_ANY, L"Do zapÅ‚aty: ", wxPoint(590, 320), wxDefaultSize, wxALIGN_CENTER);
     spinText->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinText->SetForegroundColour(wxColor(255, 255, 255));
 
@@ -85,6 +85,6 @@ void TicketTypeFrame::OnSpin(wxSpinEvent& event)
 {
     int value0 = spinCtrl0->GetValue();
     int value1 = spinCtrl1->GetValue();
-    message = wxString::Format("Do zap³aty: %d z³ ", value0 * 21 + value1 * 16);
+    message = wxString::Format(wxT("Do zapÅ‚aty: %d zÅ‚ "), value0 * 21 + value1 * 16);
     spinText->SetLabel(message);
 }

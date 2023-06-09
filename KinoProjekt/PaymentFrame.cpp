@@ -1,4 +1,4 @@
-#include "PaymentFrame.h"
+ï»¿#include "PaymentFrame.h"
 
 PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message)
      : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message)
@@ -8,7 +8,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     topPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     topPanel->SetBackgroundColour(wxColour(0, 0, 0));
 
-    staticText0 = new wxStaticText(topPanel, wxID_ANY, "P³atnoœæ", wxPoint(80,5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    staticText0 = new wxStaticText(topPanel, wxID_ANY, L"PÅ‚atnoÅ›Ä‡", wxPoint(80,5), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText0->SetForegroundColour(wxColor(40, 126, 75));
 
@@ -31,7 +31,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     hourText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     hourText->SetForegroundColour(wxColor(255, 255, 255));
 
-    languageText = new wxStaticText(leftPanel, wxID_ANY, "Jêzyk: " + language, wxPoint(100, 230), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    languageText = new wxStaticText(leftPanel, wxID_ANY, L"JÄ™zyk: " + language, wxPoint(100, 230), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     languageText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     languageText->SetForegroundColour(wxColor(255, 255, 255));
 
@@ -54,7 +54,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     staticText2->SetFont(wxFont(25, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     staticText2->SetForegroundColour(wxColor(255, 255, 255));
 
-    nameText = new wxStaticText(rightPanel, wxID_ANY, "Imiê:", wxPoint(100,80), wxDefaultSize);
+    nameText = new wxStaticText(rightPanel, wxID_ANY, L"ImiÄ™:", wxPoint(100,80), wxDefaultSize);
     nameText->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     nameText->SetForegroundColour(wxColor(255, 255, 255));
     nameCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 110), wxSize(200,30));
@@ -70,7 +70,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     surnameCtrl->SetForegroundColour(wxColor(255, 255, 255));
     surnameCtrl->SetMaxLength(20);
 
-    emailText = new wxStaticText(rightPanel, wxID_ANY, "Adres email:", wxPoint(100, 150), wxDefaultSize);
+    emailText = new wxStaticText(rightPanel, wxID_ANY, "Adres e-mail:", wxPoint(100, 150), wxDefaultSize);
     emailText->SetFont(wxFont(18, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     emailText->SetForegroundColour(wxColor(255, 255, 255));
     emailCtrl = new wxTextCtrl(rightPanel, wxID_ANY, "", wxPoint(100, 180), wxSize(200, 30));
@@ -114,7 +114,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     bottomPanel = new wxPanel(mainPanel, wxID_ANY, wxDefaultPosition, wxSize(1280, 100));
     bottomPanel->SetBackgroundColour(wxColour(0, 0, 0));
 
-    button0 = new wxButton(bottomPanel, wxID_ANY, "Zamawiam i p³acê", wxPoint(1060, 20), wxSize(200, 60));
+    button0 = new wxButton(bottomPanel, wxID_ANY, L"Zamawiam i pÅ‚acÄ™", wxPoint(1060, 20), wxSize(200, 60));
     button0->Bind(wxEVT_BUTTON, &PaymentFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 

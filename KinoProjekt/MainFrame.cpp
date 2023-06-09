@@ -1,4 +1,5 @@
 #include "MainFrame.h"
+#include <wx/image.h>
 
 MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 {
@@ -14,6 +15,17 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	staticText0 = new wxStaticText(panel0, wxID_ANY, "Kino", wxDefaultPosition, wxSize(400, -1), wxALIGN_CENTER_HORIZONTAL);
 	staticText0->SetFont(wxFont(60, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	staticText0->SetForegroundColour(wxColor(40, 126, 75));
+
+	/*wxImage image;
+
+	if (image.LoadFile(wxT("monkey.jpg"), wxBITMAP_TYPE_JPEG))
+	{
+		wxSize panel_size = panel1->GetSize();
+		wxImage scaled_image = image.Scale(panel_size.GetWidth(), panel_size.GetHeight(), wxIMAGE_QUALITY_HIGH);
+		wxBitmap bitmap(scaled_image);
+		bitmap_image = new wxStaticBitmap(panel1, wxID_ANY, bitmap, wxDefaultPosition);
+	}
+	*/
 
 	wxInitAllImageHandlers();
 	wxImage image(wxT("image/kino.png"));

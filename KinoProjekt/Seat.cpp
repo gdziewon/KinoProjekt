@@ -1,13 +1,13 @@
 #include "Seat.h"
 
-Seat::Seat(int id, int rowNum, int seatNum)
-    : CinemaItem(id, "Seat " + std::to_string(id), "Row " + std::to_string(rowNum) + ", Seat " + std::to_string(seatNum)),
-    rowNum(rowNum), seatNum(seatNum), isBooked(false) {}
+Seat::Seat(int id, int rowNum, int columnNum, bool isBooked)
+    : CinemaItem(id, "Seat " + std::to_string(id), "Row " + std::to_string(rowNum) + ", Column " + std::to_string(columnNum)),
+    rowNum(rowNum), columnNum(columnNum), isBooked(isBooked) {}
 
 int Seat::getRowNum() const { return rowNum; }
-int Seat::getSeatNum() const { return seatNum; }
+int Seat::getColumnNum() const { return columnNum; }
 bool Seat::getIsBooked() const { return isBooked; }
 
 void Seat::setRowNum(int rowNum) { this->rowNum = rowNum; }
-void Seat::setSeatNum(int seatNum) { this->seatNum = seatNum; }
+void Seat::setColumnNum(int columnNum) { this->columnNum = columnNum; }
 void Seat::setIsBooked(bool isBooked) { this->isBooked = isBooked; }
