@@ -34,4 +34,5 @@ private:
     std::shared_ptr<Seat> seat;
     std::string customerName;
 };
+
 #endif

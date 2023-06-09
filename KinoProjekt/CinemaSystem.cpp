@@ -56,7 +56,7 @@ void CinemaSystem::displayBookings() const {
     }
 }
 
-std::shared_ptr<Screening> CinemaSystem::getScreening(std::shared_ptr<Movie> movie, const std::string& dateTime) {
+std::shared_ptr<Screening> CinemaSystem::getScreening(std::shared_ptr<Movie> movie, const std::string& dateTime) const {
     for (auto& screening : screenings_) {
         if (screening->getMovie() == movie && screening->getDateTime() == dateTime) {
             return screening;
