@@ -25,6 +25,8 @@ public:
 	
 	DatabaseManager();
 
+	static DatabaseManager& getInstance();
+
 	void Initialize();
 	// Movie-related methods
 	void loadMovies(const std::string& filePath);
@@ -50,6 +52,7 @@ public:
 
 	//void saveScreenings(const std::unordered_map<int, std::shared_ptr<Screening>>& screenings);
 	bool isSeatReserved(int movieId, int roomId, int row, int column);
+	std::string* getTitles();
 
 	std::shared_ptr<Seat> getSeat(int row, int column, std::shared_ptr<Room> room) const;
 	std::shared_ptr<Seat> getSeat(int seatId, std::shared_ptr<Room> room) const;
@@ -57,7 +60,7 @@ public:
 
 	//void DatabaseManager::saveTicket(int movieId, int roomId, int row, int column);
 
-	void saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets);
+	void saveTickets(const std::vector<std::shared_ptr<Ticket>>& tickets);
 
 private:
 	std::vector<std::shared_ptr<Movie>> movies_;

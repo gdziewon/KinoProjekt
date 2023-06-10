@@ -26,4 +26,5 @@ private:
 	wxBoxSizer* mainSizer;
 
 	wxButton* backbutton;
+	
 };

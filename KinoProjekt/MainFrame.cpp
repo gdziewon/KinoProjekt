@@ -35,16 +35,16 @@ MainFrame::MainFrame(const wxString& title): wxFrame(nullptr,wxID_ANY,title)
 	button1 = new wxButton(panel2, wxID_ANY, "KUP BILET", wxPoint(400, 600), wxSize(180, 100));
 	button1->Bind(wxEVT_BUTTON, &MainFrame::OnButton1Clicked, this, wxID_ANY);
 	button1->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-	button2= new wxButton(panel2, wxID_ANY, "TWOJE BILETY", wxPoint(850, 600), wxSize(180,100));
-	button2->Bind(wxEVT_BUTTON, &MainFrame::OnButton2Clicked, this, wxID_ANY);
-	button2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+	//button2= new wxButton(panel2, wxID_ANY, "TWOJE BILETY", wxPoint(850, 600), wxSize(180,100));
+	//button2->Bind(wxEVT_BUTTON, &MainFrame::OnButton2Clicked, this, wxID_ANY);
+	//button2->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 	button3 = new wxButton(panel2, wxID_ANY, "KONTAKT", wxPoint(850, 600), wxSize(180, 100));
 	button3->Bind(wxEVT_BUTTON, &MainFrame::OnButton3Clicked, this, wxID_ANY);
 	button3->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
 	panel2Sizer->Add(button0, 20, wxALL, 50);
 	panel2Sizer->Add(button1, 20, wxALL, 50);
-	panel2Sizer->Add(button2, 20, wxALL, 50);
+	//panel2Sizer->Add(button2, 20, wxALL, 50);
 	panel2Sizer->Add(button3, 20, wxALL, 50);
 
 	mainSizer = new wxBoxSizer(wxVERTICAL);
@@ -77,7 +77,7 @@ void MainFrame::OnButton1Clicked(wxCommandEvent& evt)
 	ticketFrame->Center();
 	Close();
 }
-
+/*
 void MainFrame::OnButton2Clicked(wxCommandEvent& evt)
 {
 	YourTicketFrame* yourticketFrame = new YourTicketFrame("Twoje Bilety");
@@ -87,6 +87,8 @@ void MainFrame::OnButton2Clicked(wxCommandEvent& evt)
 	yourticketFrame->Center();
 	Close();
 }
+*/
+
 
 void MainFrame::OnButton3Clicked(wxCommandEvent& evt)
 {

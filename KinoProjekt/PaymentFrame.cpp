@@ -1,7 +1,7 @@
 ﻿#include "PaymentFrame.h"
 
-PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message)
-     : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message)
+PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message, int ticketLimit)
+     : wxFrame(nullptr, wxID_ANY, title), movie(movie), date(date), time(time), type(type), language(language), message(message), ticketLimit(ticketLimit)
 {
     mainPanel = new wxPanel(this, wxID_ANY);
 
@@ -150,5 +150,16 @@ void PaymentFrame::OnBackButtonClicked(wxCommandEvent& evt)
 
 void PaymentFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    
+    customer_name = nameCtrl->GetValue() + " " + surnameCtrl->GetValue();
+    seance_id = movie + time;
+    std::vector<std::shared_ptr<Ticket>> tickets;
+    std::shared_ptr<Screening> screening = dbManager->getScreening(movie, time);
+    std::shared_ptr<Seat> seat = std::make_shared<Seat>(1, 1, 1, true);
+    if (screening) { 
+        for (int i = 0; i < ticketLimit; i++) {
+            auto ticket = std::make_shared<Ticket>(i, "", "", screening, seat, customer_name);
+            tickets.push_back(ticket);
+        }
+    }
+    dbManager->saveTickets(tickets);
 }

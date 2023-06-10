@@ -5,8 +5,9 @@
 
 class Seat : public CinemaItem {
 public:
-    Seat(int id, int rowNum, int columnNum, bool isBooked = false);
 
+    Seat(int id, int rowNum, int columnNum, bool isBooked = false);
+    bool isBooked;
     int getRowNum() const;
     int getColumnNum() const;
     bool getIsBooked() const;
@@ -27,7 +28,6 @@ public:
 private:
     int rowNum;
     int columnNum;
-    bool isBooked;
 };
 
 #endif

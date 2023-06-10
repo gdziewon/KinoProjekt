@@ -14,6 +14,10 @@ DatabaseManager::DatabaseManager() {
 
 	Initialize();
 }
+DatabaseManager& DatabaseManager::getInstance() {
+	static DatabaseManager instance; 
+	return instance;
+}
 
 void DatabaseManager::Initialize()
 {
@@ -287,16 +291,15 @@ std::shared_ptr<Seat> DatabaseManager::getSeat(int seatId, std::shared_ptr<Room>
 	}
 }
 
-void DatabaseManager::saveTickets(const std::unordered_map<int, std::shared_ptr<Ticket>>& tickets) {
+void DatabaseManager::saveTickets(const std::vector<std::shared_ptr<Ticket>>& tickets) {
 	json j;
 
-	for (const auto& pair : tickets) {
-		const std::shared_ptr<Ticket>& ticket = pair.second;
+	for (const auto& ticket : tickets) {
 		json ticketJson;
-		ticketJson["customer_name"] = "blank";
-		ticketJson["seance_id"] = "blank";
-		ticketJson["row"] = 0;
-		ticketJson["column"] = 0;
+		ticketJson["customer_name"] = ticket -> getCustomerName();  // You might want to replace "blank" with actual data
+		ticketJson["seance_id"] = "hii"; // Same here
+		ticketJson["row"] = 1;  // And here
+		ticketJson["column"] = 3;  // And here too
 
 		j.push_back(ticketJson);
 	}
@@ -310,4 +313,14 @@ void DatabaseManager::saveTickets(const std::unordered_map<int, std::shared_ptr<
 	else {
 		std::cout << "Couldn't open file for saving tickets." << std::endl;
 	}
+}
+
+std::string* DatabaseManager::getTitles() {
+	std::string* titles = new std::string[9];
+	int j = 0;
+	for (auto& movies : movies_) {
+		titles[j] = movies->getName();
+		j++;
+	}
+	return titles;
 }

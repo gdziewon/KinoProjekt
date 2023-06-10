@@ -1,10 +1,12 @@
 #pragma once
+#include "App.h"
 #include <wx/wx.h>
 #include "MainFrame.h";
+#include <unordered_map>
 class PaymentFrame : public wxFrame
 {
 public:
-	PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message);
+	PaymentFrame(const wxString& title, const wxString& movie, const wxString& date, const wxString& time, const wxString& type, const wxString& language, const wxString& message, int ticketLimit);
 private:
 	void OnButton0Clicked(wxCommandEvent& evt);
 	void OnBackButtonClicked(wxCommandEvent& evt);
@@ -49,5 +51,12 @@ private:
 
 	wxBoxSizer* mainSizer;
 	wxBoxSizer* horizontalSizer;
+
+	std::string customer_name;
+	std::string seance_id;
+	int row;
+	int column;
+
+	int ticketLimit;
 };
 

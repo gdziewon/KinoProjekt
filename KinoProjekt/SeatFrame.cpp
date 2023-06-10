@@ -57,7 +57,7 @@ SeatFrame::SeatFrame(const wxString& title, const wxString& movie, const wxStrin
 
 void SeatFrame::OnAcceptClicked(wxCommandEvent& evt)
 {
-	PaymentFrame* paymentFrame = new PaymentFrame(wxT("Płatność"), movie, date, time, type, language, message);
+	PaymentFrame* paymentFrame = new PaymentFrame(wxT("Płatność"), movie, date, time, type, language, message, ticketLimit);
 	paymentFrame->Show();
 	paymentFrame->SetClientSize(1280, 720);
 	paymentFrame->SetMinClientSize(wxSize(1280, 720));
@@ -115,7 +115,7 @@ void SeatFrame::GenerateSeats(std::shared_ptr<Room> room) {
 		rowLabelPanel->SetBackgroundColour(wxColour(0, 0, 0));  // Black background for row label
 		wxStaticText* rowLabel = new wxStaticText(rowLabelPanel, wxID_ANY, wxString::Format("%d", i + 1));
 		rowLabel->SetForegroundColour(wxColour(255, 255, 255));  // White text for row label
-		wxBoxSizer* rowLabelSizer = new wxBoxSizer(wxHORIZONTAL);
+		wxBoxSizer* rowLabelSizer = new wxBoxSizer(wxVERTICAL);
 		rowLabelSizer->Add(rowLabel, 1, wxALIGN_CENTER);
 		rowLabelPanel->SetSizer(rowLabelSizer);
 

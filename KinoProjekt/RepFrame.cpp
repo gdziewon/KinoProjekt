@@ -1,4 +1,5 @@
 #include "RepFrame.h"
+#include "DatabaseManager.h"
 
 RepFrame::RepFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 {
