@@ -58,7 +58,7 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     button0->Bind(wxEVT_BUTTON, &TicketTypeFrame::OnButton0Clicked, this, wxID_ANY);
     button0->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
-    backbutton = new wxButton(panel2, wxID_ANY, "Powrót", wxPoint(80, 20), wxSize(200, 60));
+    backbutton = new wxButton(panel2, wxID_ANY, wxT("Powrót"), wxPoint(80, 20), wxSize(200, 60));
     backbutton->Bind(wxEVT_BUTTON, &TicketTypeFrame::OnBackButtonClicked, this, wxID_ANY);
     backbutton->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
 
@@ -75,26 +75,27 @@ TicketTypeFrame::TicketTypeFrame(const wxString& title, const wxString& movie, c
     */
     
     message = "0";
-    spinText = new wxStaticText(panel2, wxID_ANY, L"Do zapłaty: " + message + " zł", wxPoint(500, 30), wxDefaultSize, wxALIGN_CENTER);
+    spinText = new wxStaticText(panel2, wxID_ANY, wxT("Do zapłaty: ") + message + wxT(" zł"), wxPoint(500, 30), wxDefaultSize, wxALIGN_CENTER);
     spinText->SetFont(wxFont(30, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     spinText->SetForegroundColour(wxColor(255, 255, 255));
 }
 
 void TicketTypeFrame::OnButton0Clicked(wxCommandEvent& evt)
 {
-    int value0 = spinCtrl0->GetValue();
-    int value1 = spinCtrl1->GetValue();
+    int discountTickets = spinCtrl0->GetValue();
+    int normalTickets = spinCtrl1->GetValue();
 
-    if (value0 > 0 || value1 > 0) {
-        SeatFrame* seatFrame = new SeatFrame("Wybierz Miejsca", movie, date, time, type, language, message);
+    if (discountTickets > 0 || normalTickets > 0) {
+        SeatFrame* seatFrame = new SeatFrame("Wybierz Miejsca", movie, date, time, type, language, message, discountTickets + normalTickets);
         seatFrame->Show();
         seatFrame->SetClientSize(1280, 720);
+        seatFrame->SetMinClientSize(wxSize(1280, 720));
         seatFrame->SetMaxClientSize(wxSize(1280, 720));
         seatFrame->Center();
         Close();
     }
     else {
-        wxMessageBox("Wybierz przynajmniej jeden bilet.", "Błąd", wxOK | wxICON_ERROR);
+        wxMessageBox("Wybierz przynajmniej jeden bilet.", wxT("Błąd"), wxOK | wxICON_ERROR);
     }
 }
 
@@ -113,7 +114,7 @@ void TicketTypeFrame::OnSpin(wxSpinEvent& event)
     int value0 = spinCtrl0->GetValue();
     int value1 = spinCtrl1->GetValue();
     message = wxString::Format("%d", value0 * 21 + value1 * 16);
-    spinText->SetLabel("Do zapłaty: " + message + "zł");
+    spinText->SetLabel(wxT("Do zapłaty: ") + message + wxT("zł"));
 }
 
 void TicketTypeFrame::OnBackButtonClicked(wxCommandEvent& evt)

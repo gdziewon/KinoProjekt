@@ -43,7 +43,7 @@ PaymentFrame::PaymentFrame(const wxString& title, const wxString& movie, const w
     seatText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     seatText->SetForegroundColour(wxColor(255, 255, 255));
 
-    priceText = new wxStaticText(leftPanel, wxID_ANY, "Do zapłaty: " + message + " zł", wxPoint(100, 380), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
+    priceText = new wxStaticText(leftPanel, wxID_ANY, wxT("Do zapłaty: ") + message + wxT(" zł"), wxPoint(100, 380), wxDefaultSize, wxALIGN_CENTER_HORIZONTAL);
     priceText->SetFont(wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
     priceText->SetForegroundColour(wxColor(255, 255, 255));
 

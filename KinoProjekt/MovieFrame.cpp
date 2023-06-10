@@ -21,9 +21,10 @@ MovieData GetMovieDataFromDatabase()
     movie.director = "Todd Phillips";
     movie.rating = "8.4";
     movie.genre = L"Kryminał Dramat Thriller";
-        movie.description = L"Joker to film o tytułowym bohaterze z uniwersum Batmana.\
-    \nTo historia Arthura Flecka, człowieka cierpiącego na\nzaburzenia psychiczne,\
-    który wplątuje się w świat\nprzestępczości i staje się ikoną zła.";
+    movie.description = L"Joker to film o tytułowym bohaterze z uniwersum Batmana.\
+        \nTo historia Arthura Flecka, człowieka cierpiącego na\
+        \nzaburzenia psychiczne, który wplątuje się w świat\
+        \nprzestępczości i staje się ikoną zła.";
 
     movie.imagePath = wxT("image/movie1.jpg");
 

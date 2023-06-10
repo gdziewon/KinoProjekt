@@ -9,18 +9,18 @@
 
 class Screening : public CinemaItem {
 public:
-    Screening(int id, const std::string& name, const std::string& description, std::shared_ptr<Movie> movie, std::shared_ptr<Room> room, const std::string& dateTime, double price);
+    Screening(int id, const std::string& name, const std::string& description, std::shared_ptr<Movie> movie, std::shared_ptr<Room> room, const std::string& screeningTime, double price);
 
     //Getters
     std::shared_ptr<Movie> getMovie() const;
     std::shared_ptr<Room> getRoom() const;
-    std::string getDateTime() const;
+    std::string getScreeningTime() const;
     double getPrice() const;
 
     //Setters
     void setMovie(const std::shared_ptr<Movie>& movie);
     void setRoom(const std::shared_ptr<Room>& room);
-    void setDateTime(const std::string& dateTime);
+    void setScreeningTime(const std::string& screeningTime);
     void setPrice(double price);
 
     void display() const override {
@@ -29,14 +29,14 @@ public:
             << ", Description: " << getDescription()
             << ", Movie: " << movie->getName()
             << ", Room: " << room->getName()
-            << ", Date and time: " << dateTime
+            << ", Date and time: " << screeningTime
             << ", Price: " << price << std::endl;
     };
 
 private:
     std::shared_ptr<Movie> movie;
     std::shared_ptr<Room> room;
-    std::string dateTime;
+    std::string screeningTime;
     double price;
 };
 #endif

@@ -24,9 +24,6 @@
     <Filter Include="CinemaItem">
       <UniqueIdentifier>{533c15c4-1664-4626-97bc-6f5bc97042f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CinemaSystem">
-      <UniqueIdentifier>{a9e93d0f-b933-441f-b39c-357ae2303706}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DatabaseManager">
       <UniqueIdentifier>{12bfd565-b2f8-4ace-b821-5a7c90e3fd07}</UniqueIdentifier>
     </Filter>
@@ -70,9 +67,6 @@
     </ClInclude>
     <ClInclude Include="CinemaItem.h">
       <Filter>CinemaItem</Filter>
-    </ClInclude>
-    <ClInclude Include="CinemaSystem.h">
-      <Filter>CinemaSystem</Filter>
     </ClInclude>
     <ClInclude Include="DatabaseManager.h">
       <Filter>DatabaseManager</Filter>
@@ -169,9 +163,6 @@
     <ClCompile Include="CinemaItem.cpp">
       <Filter>CinemaItem</Filter>
     </ClCompile>
-    <ClCompile Include="CinemaSystem.cpp">
-      <Filter>CinemaSystem</Filter>
-    </ClCompile>
     <ClCompile Include="DatabaseManager.cpp">
       <Filter>DatabaseManager</Filter>
     </ClCompile>
@@ -196,5 +187,19 @@
     <ClCompile Include="Ticket.cpp">
       <Filter>Ticket</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\movies.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\rooms.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\screening.json">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\tickets.json">
+      <Filter>json</Filter>
+    </None>
   </ItemGroup>
 </Project>

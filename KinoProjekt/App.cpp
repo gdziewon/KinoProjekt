@@ -4,8 +4,11 @@
 
 wxIMPLEMENT_APP(App);
 
+DatabaseManager* dbManager;
+
 bool App::OnInit()
 {
+	dbManager = new DatabaseManager();
 	MainFrame* mainFrame = new MainFrame("Kino");
 	mainFrame->Show();
 	mainFrame->SetClientSize(1280,720);
@@ -14,3 +17,11 @@ bool App::OnInit()
 	mainFrame->Center();
 	return true;
 }
+
+int App::OnExit()
+{
+	delete dbManager;
+
+	return wxApp::OnExit();
+}
+

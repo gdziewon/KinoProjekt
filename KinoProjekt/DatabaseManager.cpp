@@ -2,19 +2,29 @@
 #include "json.hpp"
 #include <fstream>
 
+#include "App.h"
+
 using json = nlohmann::json;
+
+
 
 DatabaseManager::DatabaseManager() {
 	// Initialize database connection
 	// TODO: Implement the code to establish a database connection
-	this->loadMovies();
-	this->loadRooms();
-	this->loadScreenings();
-	this->loadTickets();
+
+	Initialize();
 }
 
-void DatabaseManager::loadMovies() {
-	std::ifstream file("movies.json");
+void DatabaseManager::Initialize()
+{
+	loadMovies(Configuration::moviesFilePath);
+	loadRooms(Configuration::roomsFilePath);
+	loadScreenings(Configuration::screeningsFilePath);
+	loadTickets(Configuration::ticketsFilePath);
+}
+
+void DatabaseManager::loadMovies(const std::string& moviesFilePath) {
+	std::ifstream file(moviesFilePath);
 
 	if (!file.is_open()) {
 		std::cout << "Couldn't open file." << std::endl;
@@ -67,8 +77,8 @@ std::shared_ptr<Movie> DatabaseManager::getMovie(std::string movieTitle)
 }
 
 
-void DatabaseManager::loadRooms() {
-	std::ifstream file("rooms.json");
+void DatabaseManager::loadRooms(const std::string& filePath = Configuration::roomsFilePath) {
+	std::ifstream file(filePath);
 
 	if (!file.is_open()) {
 		std::cout << "Couldn't open file." << std::endl;
@@ -111,8 +121,8 @@ std::shared_ptr<Room> DatabaseManager::getRoom(int roomId)
 }
 
 
-void DatabaseManager::loadScreenings() {
-	std::ifstream file("screenings.json");
+void DatabaseManager::loadScreenings(const std::string& filePath = Configuration::screeningsFilePath) {
+	std::ifstream file(filePath);
 
 	if (!file.is_open()) {
 		std::cout << "Couldn't open file." << std::endl;
@@ -121,7 +131,7 @@ void DatabaseManager::loadScreenings() {
 
 	json j;
 	file >> j;
-	int id = 1;
+	int id = 3;
 
 	for (auto& screeningElement : j) {
 		int movieId = screeningElement["movie_id"];
@@ -154,15 +164,29 @@ std::shared_ptr<Screening> DatabaseManager::getScreening(int screeningId)
 	{
 		return *it;
 	}
-	else
+	// if not found return nullptr
+	return nullptr;
+}
+
+std::shared_ptr<Screening> DatabaseManager::getScreening(const wxString& movie, const wxString& time)
+{
+	auto it = std::find_if(screenings_.begin(), screenings_.end(),
+		[movie, time](const std::shared_ptr<Screening>& ptr)
+		{
+			return ptr->getMovie()->getName() == movie && ptr->getScreeningTime() == time;
+		});
+
+	if (it != screenings_.end())
 	{
-		return nullptr;
+		return *it;
 	}
+	// if not found return nullptr
+	return nullptr;
 }
 
 //--------na razie nie wiem czy potrzebujemy pobierac bilety z bazy
-void DatabaseManager::loadTickets() {
-	std::ifstream file("tickets.json");
+void DatabaseManager::loadTickets(const std::string& filePath = Configuration::ticketsFilePath) {
+	std::ifstream file(filePath);
 
 	if (!file.is_open()) {
 		std::cout << "Couldn't open file." << std::endl;
@@ -174,23 +198,30 @@ void DatabaseManager::loadTickets() {
 
 	for (auto& customerElement : j["customers"]) {
 		std::string customerName = customerElement["customer_name"];
-		int screeningId = customerElement["seance_id"];
+
+		// for some reason our json files have screeningId as a String data type
+		// therefore we shall convert
+		std::string screeningIdString = customerElement["seance_id"];
+		int screeningId = std::atoi(screeningIdString.c_str());
+
 		int row = customerElement["row"];
 		int column = customerElement["column"];
-
+		
 		std::shared_ptr<Screening> screening = getScreening(screeningId);
 		std::shared_ptr<Room> room = screening->getRoom();
-		std::vector<std::shared_ptr<Seat>> seats_ = room->getSeats();
+		int id = row * room->getNumColumns() + column;
 
-		std::shared_ptr<Seat> seat = getSeat(row, column, seats_); //nie ma takich funkcji :(
 
-		std::shared_ptr<Ticket> ticket = std::make_shared<Ticket>(0, "", "", screening, seat, customerName);
+		std::shared_ptr<Seat> seat = getSeat(row, column, room); //nie ma takich funkcji :(
+
+		std::shared_ptr<Ticket> ticket = std::make_shared<Ticket>(id, "", "", screening, seat, customerName);
 		tickets_.push_back(ticket);
+		++id;
 	}
 }
 
 bool DatabaseManager::isSeatReserved(int movieId, int roomId, int row, int column) {
-	std::ifstream file("tickets.json");
+	std::ifstream file(Configuration::ticketsFilePath);
 	if (!file.is_open()) {
 		std::cout << "Couldn't open tickets file." << std::endl;
 		return false;
@@ -216,12 +247,34 @@ bool DatabaseManager::isSeatReserved(int movieId, int roomId, int row, int colum
 	return false;
 }
 
-std::shared_ptr<Seat> DatabaseManager::getSeat(int row, int column, const std::vector<std::shared_ptr<Seat>>& seats_)
+std::shared_ptr<Seat> DatabaseManager::getSeat(int row, int column, std::shared_ptr<Room> room) const
 {
+	std::vector<std::shared_ptr<Seat>> seats_ = room->getSeats();
+
 	auto it = std::find_if(seats_.begin(), seats_.end(),
 		[row, column](const std::shared_ptr<Seat>& ptr)
 		{
-			return ptr->getRowNum() == row && ptr->getColumnNum() == column;
+			return (ptr->getRowNum() == row && ptr->getColumnNum() == column);
+		});
+
+	if (it != seats_.end())
+	{
+		return *it;
+	}
+	else
+	{
+		return nullptr;
+	}
+}
+
+std::shared_ptr<Seat> DatabaseManager::getSeat(int seatId, std::shared_ptr<Room> room) const
+{
+	std::vector<std::shared_ptr<Seat>> seats_ = room->getSeats();
+
+	auto it = std::find_if(seats_.begin(), seats_.end(),
+		[seatId](const std::shared_ptr<Seat>& ptr)
+		{
+			return (ptr->getId() == seatId);
 		});
 
 	if (it != seats_.end())

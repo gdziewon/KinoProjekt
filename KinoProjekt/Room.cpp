@@ -3,8 +3,8 @@
 Room::Room(int id, const std::string& name, const std::string& description, int numRows, int numColumns)
     : CinemaItem(id, name, description), numRows(numRows), numColumns(numColumns) {
 
-    for (int i = 0; i < numRows; ++i) {
-        for (int j = 0; j < numColumns; ++j) {
+    for (int i = 1; i <= numRows; ++i) {
+        for (int j = 1; j <= numColumns; ++j) {
             seats_.push_back(std::make_shared<Seat>(i * numColumns + j, i, j));
         }
     }
